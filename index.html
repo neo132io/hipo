@@ -277,7 +277,7 @@
       });
     });
 
-    // Testimonials carousel (one at a time, auto 3s + arrows + dots)
+    // Testimonials carousel (one at a time, auto 5s + arrows + dots)
     (function () {
       const slides = Array.from(document.querySelectorAll('#testimonial-carousel .testimonial-slide'));
       const prevBtn = document.getElementById('prev-testimonial');
@@ -306,7 +306,7 @@
       function go(idx) { i = (idx + slides.length) % slides.length; render(); }
       function next() { go(i + 1); }
       function prev() { go(i - 1); }
-      function start() { timer = setInterval(next, 3000); }
+      function start() { timer = setInterval(next, 5000); } // 5 seconds
       function stop() { if (timer) clearInterval(timer); timer = null; }
       function restart() { stop(); start(); }
 
