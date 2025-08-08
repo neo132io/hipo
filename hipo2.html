@@ -8,6 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --brand-dark: #0d1a26;
+            --brand-mid: #213c54;
+            --brand-accent: #2a9d8f;
+            --muted: #5a7184;
+            --ring: #a5d6a7;
+        }
+        * { box-sizing: border-box; }
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f4f7f9;
@@ -28,7 +36,7 @@
             border: 1px solid #e0e6ec;
         }
         .header {
-            background: linear-gradient(135deg, #0d1a26, #213c54);
+            background: linear-gradient(135deg, var(--brand-dark), var(--brand-mid));
             color: #ffffff;
             text-align: center;
             padding: 50px 30px;
@@ -42,143 +50,69 @@
         .header p {
             font-size: 1.2em;
             margin: 10px 0 0;
-            opacity: 0.8;
+            opacity: 0.9;
             font-weight: 300;
         }
-        .section {
-            padding: 40px 30px;
-            border-bottom: 1px solid #e0e6ec;
-        }
-        .section:last-child {
-            border-bottom: none;
-        }
-        .section h2 {
-            font-size: 1.8em;
-            font-weight: 600;
-            margin-top: 0;
-            margin-bottom: 25px;
-            color: #1a3b5a;
-            text-align: center;
-        }
-        .section .icon {
-            display: block;
-            margin: 0 auto 15px auto;
-            width: 50px;
-            height: 50px;
-        }
-        .metrics {
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .metric {
-            flex-basis: 30%;
-            min-width: 120px;
-        }
-        .metric .value {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #2a9d8f;
-        }
-        .metric .label {
-            font-size: 0.9em;
-            color: #5a7184;
-            line-height: 1.4;
-        }
+        .section { padding: 40px 30px; border-bottom: 1px solid #e0e6ec; }
+        .section:last-child { border-bottom: none; }
+        .section h2 { font-size: 1.8em; font-weight: 600; margin: 0 0 25px; color: #1a3b5a; text-align: center; }
+        .section .icon { display: block; margin: 0 auto 15px auto; width: 50px; height: 50px; }
+        .metrics { display: flex; justify-content: space-around; text-align: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px; }
+        .metric { flex-basis: 30%; min-width: 120px; }
+        .metric .value { font-size: 2.5em; font-weight: 700; color: var(--brand-accent); }
+        .metric .label { font-size: 0.9em; color: var(--muted); line-height: 1.4; }
+
+        /* FLOW: icons + arrows rendered purely with inline SVG, consistent sizing */
         .flow-diagram {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            margin: 30px 0;
+            gap: 12px;
+            margin: 30px auto;
             flex-wrap: wrap;
+            max-width: 680px;
         }
-        .flow-item {
+        .flow-step, .arrow-wrap {
+            width: 140px; /* equal footprint so layout is predictable */
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            font-size: 0.9em;
-            color: #5a7184;
-            flex-basis: 100px;
         }
-         .flow-item .icon-flow {
-            width: 60px;
-            height: 60px;
-            background-color: #e8f5e9;
+        .badge {
+            width: 64px; height: 64px;
             border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 10px auto;
-            border: 2px solid #a5d6a7;
+            border: 2px solid var(--ring);
+            background: #f5fff6;
+            display: grid; place-items: center;
+            margin-bottom: 10px;
         }
-        .arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            color: #a5d6a7;
-            height: 60px;
-        }
-        .opportunity {
-            background-color: #e6f7ff;
-            text-align: center;
-        }
-        .opportunity h2 {
-            color: #005f99;
-        }
-        .opportunity p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto 20px auto;
-        }
-        .equity-box {
-            background-color: #ffffff;
-            border: 2px dashed #005f99;
-            padding: 20px;
-            border-radius: 12px;
-            display: inline-block;
-        }
-        .equity-box .title {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #005f99;
-            margin: 0 0 5px 0;
-        }
-        .equity-box .desc {
-            font-size: 1em;
-            color: #333;
-            margin: 0;
-        }
-        .footer {
-            background-color: #0d1a26;
-            color: #ffffff;
-            text-align: center;
-            padding: 30px;
-        }
-        .footer p {
-            margin: 0 0 15px 0;
-            opacity: 0.9;
-            font-size: 1.1em;
-        }
-        .footer a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            background-color: #2a9d8f;
-            padding: 12px 25px;
-            border-radius: 25px;
-            transition: background-color 0.3s;
-        }
-        .footer a:hover {
-            background-color: #217c70;
+        .badge svg { width: 28px; height: 28px; stroke: var(--brand-accent); fill: none; stroke-width: 2; }
+        .flow-label { font-size: 0.92em; color: var(--muted); line-height: 1.3; }
+        .arrow-wrap svg { width: 32px; height: 32px; stroke: var(--ring); fill: none; stroke-width: 2.5; }
+
+        .opportunity { background-color: #e6f7ff; text-align: center; }
+        .opportunity h2 { color: #005f99; }
+        .opportunity p { font-size: 1.1em; line-height: 1.6; max-width: 600px; margin: 0 auto 20px auto; }
+        .equity-box { background-color: #ffffff; border: 2px dashed #005f99; padding: 20px; border-radius: 12px; display: inline-block; }
+        .equity-box .title { font-size: 1.2em; font-weight: 600; color: #005f99; margin: 0 0 5px 0; }
+        .equity-box .desc { font-size: 1em; color: #333; margin: 0; }
+
+        .footer { background-color: var(--brand-dark); color: #ffffff; text-align: center; padding: 30px; }
+        .footer p { margin: 0 0 15px 0; opacity: 0.95; font-size: 1.1em; }
+        .footer a { color: #ffffff; text-decoration: none; font-weight: 600; background-color: var(--brand-accent); padding: 12px 25px; border-radius: 25px; transition: transform .15s ease; display: inline-block; }
+        .footer a:hover { transform: translateY(-1px); }
+
+        @media (max-width: 720px) {
+            .section { padding: 28px 20px; }
+            .metrics { flex-direction: column; align-items: center; }
+            .flow-step, .arrow-wrap { width: 45%; height: 110px; }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <header class="header">
             <h1>Join a Mission to Fix Freelancer Finances</h1>
@@ -186,7 +120,7 @@
         </header>
 
         <section class="section">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2a9d8f"><path d="M17.656,15.656,12,21.313,6.344,15.656A8.005,8.005,0,0,1,12,4a8.005,8.005,0,0,1,5.656,11.656ZM12,2A10,10,0,0,0,3.515,17.071L12,25.556,20.485,17.071A10,10,0,0,0,12,2Z"/></svg>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
             <h2>The Problem: An Exploding Market in Financial Chaos</h2>
             <div class="metrics">
                 <div class="metric">
@@ -206,55 +140,72 @@
         </section>
 
         <section class="section">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2a9d8f"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2ZM12,4a8,8,0,0,1,7.9,7.1,1.93,1.93,0,0,0-1.8,2H5.9a1.93,1.93,0,0,0-1.8-2A8,8,0,0,1,12,4Zm0,16a8,8,0,0,1-7.9-7.1A1.93,1.93,0,0,0,5.9,11H18.1a1.93,1.93,0,0,0,1.8,1.9A8,8,0,0,1,12,20Z"/></svg>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18"/></svg>
             <h2>The Vision: The Financial OS for Modern Independents</h2>
             <p style="text-align: center; max-width: 650px; margin: 0 auto 30px auto;">We're not building another tax tool. We're creating an intelligent, automated system that gives freelancers true financial peace of mind. A single platform that manages their entire financial workflow, making tax compliance a natural, stress-free byproduct.</p>
+
             <div class="flow-diagram">
-                <div class="flow-item">
-                    <div class="icon-flow">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#2a9d8f"><path d="M20,8H4V6H20ZM20,18H4V12H20Zm-2-4H6v2h12ZM3,22a1,1,0,0,1-1-1V3A1,1,0,0,1,3,2H21a1,1,0,0,1,1,1V21a1,1,0,0,1-1,1Z"/></svg>
+                <!-- Step 1 -->
+                <div class="flow-step">
+                    <div class="badge" aria-hidden="true">
+                        <!-- square icon -->
+                        <svg viewBox="0 0 24 24" role="img"><rect x="6" y="6" width="12" height="12" rx="1.5"/></svg>
                     </div>
-                    Track Income & Expenses
+                    <div class="flow-label">Track Income &amp; Expenses</div>
                 </div>
-                <div class="arrow">&rarr;</div>
-                <div class="flow-item">
-                    <div class="icon-flow">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#2a9d8f"><path d="M18.9,18.29,14,23.18,14,19,9.11,14.07,9.11,14.07a2.5,2.5,0,0,1,0-3.54L14.05,5.6a2.5,2.5,0,0,1,3.54,0L22.5,10.46A2.5,2.5,0,0,1,22.5,14ZM16.12,7,11.17,11.9a.5.5,0,0,0,0,.71l3.54,3.53-3.18,3.19.71.7,3.54-3.54a.5.5,0,0,0,0-.7L21.09,12l-1.41-1.42Z"/></svg>
-                    </div>
-                    AI-Powered Deductions
+                <!-- Arrow -->
+                <div class="arrow-wrap" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
                 </div>
-                <div class="arrow">&rarr;</div>
-                <div class="flow-item">
-                    <div class="icon-flow">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#2a9d8f"><path d="M13,11H11v6h2ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,12,7Z"/></svg>
+                <!-- Step 2 -->
+                <div class="flow-step">
+                    <div class="badge" aria-hidden="true">
+                        <!-- spark icon -->
+                        <svg viewBox="0 0 24 24"><path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3z"/></svg>
                     </div>
-                    Automate Tax Set-Aside
+                    <div class="flow-label">AI-Powered Deductions</div>
                 </div>
-                <div class="arrow">&rarr;</div>
-                <div class="flow-item">
-                    <div class="icon-flow">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#2a9d8f"><path d="M21.71,11.29l-9-9a1,1,0,0,0-1.42,0l-9,9a1,1,0,0,0,0,1.42l9,9a1,1,0,0,0,1.42,0l9-9A1,1,0,0,0,21.71,11.29ZM12,19,5,12l7-7,7,7Z"/></svg>
+                <!-- Arrow -->
+                <div class="arrow-wrap" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+                </div>
+                <!-- Step 3 -->
+                <div class="flow-step">
+                    <div class="badge" aria-hidden="true">
+                        <!-- info icon -->
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 10v6M12 8h.01"/></svg>
                     </div>
-                    Pay IRS in 1-Click
+                    <div class="flow-label">Automate Tax Set-Aside</div>
+                </div>
+                <!-- Arrow -->
+                <div class="arrow-wrap" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+                </div>
+                <!-- Step 4 -->
+                <div class="flow-step">
+                    <div class="badge" aria-hidden="true">
+                        <!-- diamond icon -->
+                        <svg viewBox="0 0 24 24"><path d="M12 3l8 9-8 9-8-9 8-9z"/></svg>
+                    </div>
+                    <div class="flow-label">Pay IRS in 1‑Click</div>
                 </div>
             </div>
         </section>
 
         <section class="section opportunity">
-             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#005f99"><path d="M19.7,7.34a.99.99,0,0,0-1.4,0L13.5,12.14,11.91,10a1,1,0,0,0-1.56,1.25l2.44,4a1,1,0,0,0,1.62-.06l5.35-6.23A1,1,0,0,0,19.7,7.34ZM10,12a1,1,0,1,0-1-1A1,1,0,0,0,10,12Zm0,5a1,1,0,1,0,1,1A1,1,0,0,0,10,17Zm0-10a1,1,0,1,0,1,1A1,1,0,0,0,10,7Zm11,5a9,9,0,1,1-9-9A9,9,0,0,1,21,12Zm-2,0a7,7,0,1,0-7,7A7,7,0,0,0,19,12Z"/></svg>
-            <h2>The Opportunity: Build the Brains of the Operation----</h2>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#005f99" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+            <h2>The Opportunity: Build the Brains of the Operation</h2>
             <p>I am looking for an expert to be more than an advisor. I'm seeking a true partner to embed deep accounting and tax logic into the very core of our product. Your expertise will define our competitive advantage and build the trust our users need.</p>
             <div class="equity-box">
-                <div class="title">You are the Design Partner & Co-Founder</div>
+                <div class="title">You are the Design Partner &amp; Co-Founder</div>
                 <div class="desc">This is a foundational role for a significant equity stake.</div>
             </div>
         </section>
 
         <footer class="footer">
             <p>If you are passionate about using technology to solve this massive problem, I would love to talk.</p>
-            <a href="mailto:sivan@vizoxltd.com?subject=Co-Founder%20Application&body=Hi%20Sivan,">Let's Connect</a>
+            <a href="mailto:sivan@vizoxltd.com?subject=Co-Founder%20&%20Design%20Partner%20Opportunity&body=Hi%20Sivan%2C%0AI'm%20interested%20in%20learning%20more%20about%20the%20Design%20Partner%20role.%20Here%20are%20my%20details%3A%0A-%20Name%3A%0A-%20LinkedIn%3A%0A-%20Expertise%3A%0A">Let's Connect</a>
         </footer>
     </div>
-
 </body>
 </html>
