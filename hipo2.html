@@ -1,237 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Financial OS for Freelancers – Infographic</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg: #0b1220;
-      --card: #0f172a;
-      --muted: #9aa4b2;
-      --accent1: #6ee7ff;
-      --accent2: #a78bfa;
-      --accent3: #34d399;
-      --gold: #f4c95d;
-    }
-    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); }
-    .title { font-family: Manrope, Inter, system-ui; }
-    .grid-a4 { max-width: 1100px; }
-    @media print {
-      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .no-print { display: none !important; }
-      .page { box-shadow: none !important; }
-    }
-    .glow {
-      box-shadow: 0 0 0px rgba(0,0,0,0), 0 0 80px rgba(103,232,249,0.15), inset 0 0 60px rgba(167,139,250,0.08);
-    }
-    .radial-bg {
-      background: radial-gradient(1200px 500px at 20% -10%, rgba(103,232,249,0.12), transparent 60%),
-                  radial-gradient(900px 400px at 90% 10%, rgba(167,139,250,0.12), transparent 60%),
-                  radial-gradient(700px 300px at 50% 110%, rgba(52,211,153,0.12), transparent 60%);
-    }
-    .pill { background: linear-gradient(90deg, rgba(110,231,255,0.2), rgba(167,139,250,0.2)); border: 1px solid rgba(148,163,184,0.18); }
-    .grad-line { background: linear-gradient(90deg, var(--accent1), var(--accent2)); height: 3px; }
-    .meter { background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3)); }
-    .badge { border: 1px solid rgba(148,163,184,0.2); background: rgba(148,163,184,0.08); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunity: Co-Founder & Design Partner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #e0e6ec;
+        }
+        .header {
+            background: linear-gradient(135deg, #0d1a26, #213c54);
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .header p {
+            font-size: 1.2em;
+            margin: 10px 0 0;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+        .section {
+            padding: 40px 30px;
+            border-bottom: 1px solid #e0e6ec;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 25px;
+            color: #1a3b5a;
+            text-align: center;
+        }
+        .section .icon {
+            display: block;
+            margin: 0 auto 15px auto;
+            width: 50px;
+            height: 50px;
+        }
+        .metrics {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .metric {
+            flex-basis: 30%;
+        }
+        .metric .value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #2a9d8f;
+        }
+        .metric .label {
+            font-size: 0.9em;
+            color: #5a7184;
+            line-height: 1.4;
+        }
+        .flow-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .flow-item {
+            text-align: center;
+            font-size: 0.9em;
+            color: #5a7184;
+        }
+         .flow-item .icon-flow {
+            width: 60px;
+            height: 60px;
+            background-color: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 10px auto;
+            border: 2px solid #a5d6a7;
+        }
+        .arrow {
+            font-size: 2em;
+            color: #a5d6a7;
+        }
+        .opportunity {
+            background-color: #e6f7ff;
+            text-align: center;
+        }
+        .opportunity h2 {
+            color: #005f99;
+        }
+        .opportunity p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+        .equity-box {
+            background-color: #ffffff;
+            border: 2px dashed #005f99;
+            padding: 20px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+        .equity-box .title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #005f99;
+            margin: 0 0 5px 0;
+        }
+        .equity-box .desc {
+            font-size: 1em;
+            color: #333;
+            margin: 0;
+        }
+        .footer {
+            background-color: #0d1a26;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px;
+        }
+        .footer p {
+            margin: 0 0 15px 0;
+            opacity: 0.9;
+        }
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            background-color: #2a9d8f;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+        }
+        .footer a:hover {
+            background-color: #217c70;
+        }
+    </style>
 </head>
-<body class="text-slate-200 radial-bg">
-  <main class="page mx-auto grid-a4 p-6 md:p-10">
-    <!-- Header -->
-    <section class="rounded-3xl bg-gradient-to-r from-slate-900/70 via-slate-900/40 to-slate-900/70 p-6 md:p-10 glow">
-      <div class="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <div class="pill inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm text-slate-100">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m4-4H8"/></svg>
-            Financial OS for Freelancers
-          </div>
-          <h1 class="title mt-4 text-3xl md:text-5xl font-extrabold leading-tight">
-            End tax anxiety for 80M+ US freelancers
-          </h1>
-          <p class="mt-3 max-w-3xl text-slate-300">
-            An AI-first platform that automates expense tracking, real-time tax calculations, and quarterly payments. Built to turn chaos into clarity.
-          </p>
-        </div>
-        <div class="text-right">
-          <div class="inline-flex items-center gap-2 badge px-3 py-1 rounded-lg text-sm">
-            <span>Seeking</span> <span class="font-semibold text-white">Design Partner</span>
-          </div>
-          <p class="mt-2 text-sm text-slate-400">Deep US Accounting & Tax expertise • Equity-based</p>
-        </div>
-      </div>
-      <div class="mt-6 grad-line rounded"></div>
+<body>
 
-      <!-- KPI Row -->
-      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="rounded-2xl bg-slate-900/60 p-5">
-          <p class="text-slate-400 text-sm">Market size</p>
-          <p class="mt-1 text-3xl font-extrabold">80M+</p>
-          <p class="text-slate-400 text-xs">Independent workers in the US</p>
-        </div>
-        <div class="rounded-2xl bg-slate-900/60 p-5">
-          <p class="text-slate-400 text-sm">Time saved per user</p>
-          <div class="mt-2 h-3 w-full rounded-full bg-slate-700/60 overflow-hidden">
-            <div class="meter h-3 w-3/4"></div>
-          </div>
-          <p class="mt-1 text-3xl font-extrabold">~75%</p>
-          <p class="text-slate-400 text-xs">From capture to compliance</p>
-        </div>
-        <div class="rounded-2xl bg-slate-900/60 p-5">
-          <p class="text-slate-400 text-sm">Quarterly penalty risk</p>
-          <p class="mt-1 text-3xl font-extrabold">Near zero</p>
-          <p class="text-slate-400 text-xs">Automated estimates and payments</p>
-        </div>
-      </div>
-    </section>
+    <div class="container">
+        <header class="header">
+            <h1>Join a Mission to Fix Freelancer Finances</h1>
+            <p>Seeking an Accounting & Tax Expert as a Co-Founder & Design Partner</p>
+        </header>
 
-    <!-- Problem vs Solution -->
-    <section class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <div class="rounded-3xl bg-slate-900/60 p-6 md:p-8">
-        <h2 class="title text-2xl font-extrabold">The problem</h2>
-        <ul class="mt-4 space-y-3 text-slate-300">
-          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-rose-400"></span><span>Fragmented tools for expenses, estimates, and filings.</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-rose-400"></span><span>Quarterly payments are confusing and easy to miss.</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-rose-400"></span><span>Rules change often. Freelancers pay penalties or overpay.</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-rose-400"></span><span>Annual crunch creates stress and costly mistakes.</span></li>
-        </ul>
-      </div>
-      <div class="rounded-3xl bg-slate-900/60 p-6 md:p-8">
-        <h2 class="title text-2xl font-extrabold">Our solution</h2>
-        <ul class="mt-4 space-y-3 text-slate-300">
-          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span><span>Single Financial OS that connects bank feeds, invoices, and receipts.</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span><span>Real-time tax meter that adjusts as money moves.</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span><span>Auto-pay quarterly estimates with built-in safeguards.</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span><span>CPA-grade logic. AI explains every number in plain English.</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- How it works -->
-    <section class="mt-8 rounded-3xl bg-slate-900/60 p-6 md:p-8">
-      <h2 class="title text-2xl font-extrabold">How it works</h2>
-      <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div class="rounded-2xl bg-slate-800/60 p-5">
-          <div class="text-sm text-slate-400">Step 1</div>
-          <h3 class="mt-1 font-semibold">Connect accounts</h3>
-          <p class="mt-2 text-sm text-slate-300">Secure bank feeds, cards, and invoicing apps. Two-minute setup.</p>
-        </div>
-        <div class="rounded-2xl bg-slate-800/60 p-5">
-          <div class="text-sm text-slate-400">Step 2</div>
-          <h3 class="mt-1 font-semibold">Auto-categorize</h3>
-          <p class="mt-2 text-sm text-slate-300">AI reads transactions and receipts. Learns your patterns.</p>
-        </div>
-        <div class="rounded-2xl bg-slate-800/60 p-5">
-          <div class="text-sm text-slate-400">Step 3</div>
-          <h3 class="mt-1 font-semibold">Live tax meter</h3>
-          <p class="mt-2 text-sm text-slate-300">Real-time estimates update as you earn and spend.</p>
-        </div>
-        <div class="rounded-2xl bg-slate-800/60 p-5">
-          <div class="text-sm text-slate-400">Step 4</div>
-          <h3 class="mt-1 font-semibold">One-tap payments</h3>
-          <p class="mt-2 text-sm text-slate-300">Schedule and auto-pay quarterly taxes. No surprises.</p>
-        </div>
-      </div>
-
-      <!-- Visual bar chart (pure CSS) -->
-      <div class="mt-8">
-        <p class="text-sm text-slate-400">Typical freelancer time use on taxes per quarter</p>
-        <div class="mt-3 grid grid-cols-4 gap-3 items-end">
-          <div class="rounded-2xl bg-slate-800/70 p-3 text-center">
-            <div class="mx-auto h-32 w-9 bg-slate-700 rounded">
-              <div class="h-28 w-9 meter rounded-b"></div>
+        <section class="section">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2a9d8f"><path d="M17.656,15.656,12,21.313,6.344,15.656A8.005,8.005,0,0,1,12,4a8.005,8.005,0,0,1,5.656,11.656ZM12,2A10,10,0,0,0,3.515,17.071L12,25.556,20.485,17.071A10,10,0,0,0,12,2Z"/></svg>
+            <h2>The Problem: An Exploding Market in Financial Chaos</h2>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="value">86M+</div>
+                    <div class="label">Freelancers in the U.S. by 2027</div>
+                </div>
+                <div class="metric">
+                    <div class="value">$1.5T</div>
+                    <div class="label">Annual contribution to the U.S. Economy</div>
+                </div>
+                <div class="metric">
+                    <div class="value">#1</div>
+                    <div class="label">Source of anxiety is managing finances & taxes</div>
+                </div>
             </div>
-            <p class="mt-2 text-xs text-slate-400">Before</p>
-          </div>
-          <div class="rounded-2xl bg-slate-800/70 p-3 text-center">
-            <div class="mx-auto h-32 w-9 bg-slate-700 rounded">
-              <div class="h-16 w-9 meter rounded-b"></div>
+            <p style="text-align:center; font-size: 1.1em; line-height: 1.6; color: #333;">The creator economy is booming, but its participants are drowning in complexity. They face a constant battle with quarterly tax estimates, missed deductions, and a deep, persistent fear of the IRS. Existing solutions are either too generic or too expensive, leaving a massive, underserved market.</p>
+        </section>
+
+        <section class="section">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2a9d8f"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2ZM12,4a8,8,0,0,1,7.9,7.1,1.93,1.93,0,0,0-1.8,2H5.9a1.93,1.93,0,0,0-1.8-2A8,8,0,0,1,12,4Zm0,16a8,8,0,0,1-7.9-7.1A1.93,1.93,0,0,0,5.9,11H18.1a1.93,1.93,0,0,0,1.8,1.9A8,8,0,0,1,12,20Z"/></svg>
+            <h2>The Vision: The Financial OS for Modern Independents</h2>
+            <p style="text-align: center; max-width: 650px; margin: 0 auto 30px auto;">We're not building another tax tool. We're creating an intelligent, automated system that gives freelancers true financial peace of mind. A single platform that manages their entire financial workflow, making tax compliance a natural, stress-free byproduct.</p>
+            <div class="flow-diagram">
+                <div class="flow-item">
+                    <div class="icon-flow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#2a9d8f"><path d="M20,8H4V6H20ZM20,18H4V12H20Zm-2-4H6v2h12ZM3,22a1,1,0,0,1-1-1V3A1,1,0,0,1,3,2H21a1,1,0,0,1,1,1V21a1,1,0,0,1-1,1Z"/></svg>
+                    </div>
+                    Track Income & Expenses
+                </div>
+                <div class="arrow">&rarr;</div>
+                <div class="flow-item">
+                    <div class="icon-flow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#2a9d8f"><path d="M18.9,18.29,14,23.18,14,19,9.11,14.07,9.11,14.07a2.5,2.5,0,0,1,0-3.54L14.05,5.6a2.5,2.5,0,0,1,3.54,0L22.5,10.46A2.5,2.5,0,0,1,22.5,14ZM16.12,7,11.17,11.9a.5.5,0,0,0,0,.71l3.54,3.53-3.18,3.19.71.7,3.54-3.54a.5.5,0,0,0,0-.7L21.09,12l-1.41-1.42Z"/></svg>
+                    </div>
+                    AI-Powered Deductions
+                </div>
+                <div class="arrow">&rarr;</div>
+                <div class="flow-item">
+                    <div class="icon-flow">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#2a9d8f"><path d="M13,11H11v6h2ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,12,7Z"/></svg>
+                    </div>
+                    Automate Tax Set-Aside
+                </div>
+                <div class="arrow">&rarr;</div>
+                <div class="flow-item">
+                    <div class="icon-flow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#2a9d8f"><path d="M21.71,11.29l-9-9a1,1,0,0,0-1.42,0l-9,9a1,1,0,0,0,0,1.42l9,9a1,1,0,0,0,1.42,0l9-9A1,1,0,0,0,21.71,11.29ZM12,19,5,12l7-7,7,7Z"/></svg>
+                    </div>
+                    Pay IRS in 1-Click
+                </div>
             </div>
-            <p class="mt-2 text-xs text-slate-400">With OS</p>
-          </div>
-          <div class="rounded-2xl bg-slate-800/70 p-3 text-center">
-            <div class="mx-auto h-32 w-9 bg-slate-700 rounded">
-              <div class="h-28 w-9 bg-rose-400 rounded-b"></div>
+        </section>
+
+        <section class="section opportunity">
+             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#005f99"><path d="M19.7,7.34a.99.99,0,0,0-1.4,0L13.5,12.14,11.91,10a1,1,0,0,0-1.56,1.25l2.44,4a1,1,0,0,0,1.62-.06l5.35-6.23A1,1,0,0,0,19.7,7.34ZM10,12a1,1,0,1,0-1-1A1,1,0,0,0,10,12Zm0,5a1,1,0,1,0,1,1A1,1,0,0,0,10,17Zm0-10a1,1,0,1,0,1,1A1,1,0,0,0,10,7Zm11,5a9,9,0,1,1-9-9A9,9,0,0,1,21,12Zm-2,0a7,7,0,1,0-7,7A7,7,0,0,0,19,12Z"/></svg>
+            <h2>The Opportunity: Build the Brains of the Operation</h2>
+            <p>I am looking for an expert to be more than an advisor. I'm seeking a true partner to embed deep accounting and tax logic into the very core of our product. Your expertise will define our competitive advantage and build the trust our users need.</p>
+            <div class="equity-box">
+                <div class="title">You are the Design Partner & Co-Founder</div>
+                <div class="desc">This is a foundational role for a significant equity stake.</div>
             </div>
-            <p class="mt-2 text-xs text-slate-400">Penalty risk</p>
-          </div>
-          <div class="rounded-2xl bg-slate-800/70 p-3 text-center">
-            <div class="mx-auto h-32 w-9 bg-slate-700 rounded">
-              <div class="h-8 w-9 bg-rose-400 rounded-b"></div>
-            </div>
-            <p class="mt-2 text-xs text-slate-400">With OS</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- Trust & Principles -->
-    <section class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <div class="rounded-3xl bg-slate-900/60 p-6 md:p-8">
-        <h2 class="title text-2xl font-extrabold">Built for trust</h2>
-        <ul class="mt-4 space-y-3 text-slate-300">
-          <li class="flex items-start gap-3"><svg class="h-5 w-5 text-emerald-400 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8 10-5-5"/></svg>Bank-grade security and read-only data access by default.</li>
-          <li class="flex items-start gap-3"><svg class="h-5 w-5 text-emerald-400 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8 10-5-5"/></svg>CPA-reviewed rules and transparent audit trail.</li>
-          <li class="flex items-start gap-3"><svg class="h-5 w-5 text-emerald-400 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8 10-5-5"/></svg>Explainability: every calculation is clickable and documented.</li>
-        </ul>
-      </div>
-      <div class="rounded-3xl bg-slate-900/60 p-6 md:p-8">
-        <h2 class="title text-2xl font-extrabold">Who wins</h2>
-        <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
-          <div class="rounded-xl bg-slate-800/50 p-4">
-            <p class="text-slate-400">Solo freelancers</p>
-            <p class="font-semibold">Hands-off compliance</p>
-          </div>
-          <div class="rounded-xl bg-slate-800/50 p-4">
-            <p class="text-slate-400">Creators & coaches</p>
-            <p class="font-semibold">Real-time insights</p>
-          </div>
-          <div class="rounded-xl bg-slate-800/50 p-4">
-            <p class="text-slate-400">Agencies</p>
-            <p class="font-semibold">Multi-entity support</p>
-          </div>
-          <div class="rounded-xl bg-slate-800/50 p-4">
-            <p class="text-slate-400">CPAs</p>
-            <p class="font-semibold">Collaborate at scale</p>
-          </div>
-        </div>
-      </div>
-      <div class="rounded-3xl bg-slate-900/60 p-6 md:p-8">
-        <h2 class="title text-2xl font-extrabold">Timeline</h2>
-        <ol class="mt-4 space-y-4 text-sm">
-          <li class="flex gap-3"><div class="h-6 w-6 rounded-full bg-slate-700 flex items-center justify-center">1</div><div><p class="font-semibold">Aug - Sep</p><p class="text-slate-400">Design Partner onboarding and problem mapping</p></div></li>
-          <li class="flex gap-3"><div class="h-6 w-6 rounded-full bg-slate-700 flex items-center justify-center">2</div><div><p class="font-semibold">Oct - Nov</p><p class="text-slate-400">Alpha: bank feeds, categorization, live meter</p></div></li>
-          <li class="flex gap-3"><div class="h-6 w-6 rounded-full bg-slate-700 flex items-center justify-center">3</div><div><p class="font-semibold">Dec</p><p class="text-slate-400">Quarterly autopay and CPA review loop</p></div></li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- Callout -->
-    <section class="mt-8 rounded-3xl bg-gradient-to-r from-indigo-500/20 via-cyan-400/10 to-emerald-400/20 p-6 md:p-8 border border-slate-700">
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
-          <h2 class="title text-2xl font-extrabold">Partner with us as Design Partner</h2>
-          <p class="mt-2 text-slate-200 max-w-3xl">Help encode the right tax logic from day one. Equity-based partnership. Let us build a calmer financial life for millions of freelancers.</p>
-        </div>
-        <div class="shrink-0">
-          <a href="#" class="inline-flex items-center gap-2 rounded-xl bg-white text-slate-900 font-semibold px-5 py-3 hover:opacity-90 focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 14H7v-2h6v2zm4-4H7V8h10v4z"/></svg>
-            Get the brief
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer note -->
-    <p class="mt-6 text-center text-xs text-slate-400">This infographic is a concept mockup. Figures are illustrative and will be validated with Design Partners.</p>
-
-    <div class="no-print mt-8 flex justify-center">
-      <button onclick="window.print()" class="rounded-xl bg-slate-800 px-4 py-2 text-sm border border-slate-700 hover:bg-slate-700">Print or save as PDF</button>
-    </div>
-  </main>
-</body>
-</html>
+        <footer class="footer">
+            <p>If you have
