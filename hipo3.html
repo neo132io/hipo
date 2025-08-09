@@ -25,12 +25,36 @@
     .sticky-cta { position: sticky; bottom: 0; z-index: 40; }
       /* Clamp paragraphs to avoid overflow in carousel */
     .clamp-5 { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+      /* Marquee (top notice) */
+    .marquee{position:relative; overflow:hidden;}
+    .marquee__inner{display:inline-block; white-space:nowrap; will-change:transform; animation:marquee 18s linear infinite;}
+    @keyframes marquee{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+    @media (max-width:640px){.marquee__inner{animation-duration:22s}}
+    @media (prefers-reduced-motion: reduce){.marquee__inner{animation:none}}
+    /* Clamp paragraphs to avoid overflow in carousel */
+    .clamp-5 { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+      /* Marquee (top notice) */
+    .marquee{position:relative; overflow:hidden;}
+    .marquee__inner{display:inline-block; white-space:nowrap; will-change:transform; animation:marquee 18s linear infinite;}
+    @keyframes marquee{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+    @media (max-width:640px){.marquee__inner{animation-duration:22s}}
+    @media (prefers-reduced-motion: reduce){.marquee__inner{animation:none}}
+    /* Clamp paragraphs to avoid overflow in carousel */
+    .clamp-5 { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+    /* Carousel dots explicit style */
+    #testimonial-dots button{ width:10px; height:10px; border-radius:9999px; background:rgba(255,255,255,.4); display:inline-block; }
+    #testimonial-dots button.active{ background:#FFFFFF; }
   </style>
 </head>
 <body class="bg-white text-gray-800">
   <div class="bg-amber-50 text-amber-900 text-xs sm:text-sm">
-    <div class="container mx-auto px-4 sm:px-6 py-2 text-center">
-      I work with up to 3 clients in parallel. <span class="font-semibold">1 slot currently open.</span>
+    <div class="container mx-auto px-4 sm:px-6 py-2">
+      <div class="marquee">
+        <div class="marquee__inner">
+          I work with up to 3 clients in parallel. <span class="font-semibold">1 slot currently open.</span>
+          &nbsp;&nbsp;•&nbsp;&nbsp; I work with up to 3 clients in parallel. <span class="font-semibold">1 slot currently open.</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -65,22 +89,22 @@
       <p class="text-center text-gray-500 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 font-medium">Trusted by founders & SaaS teams</p>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 text-center">
         <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm p-2 sm:p-3">
-          <span class="font-black text-base sm:text-lg text-gray-800 tracking-wider">TOUCH<span class="text-gray-600">STAY</span></span>
+          <span class="font-black text-base sm:text-lg text-gray-800 tracking-widest uppercase">TOUCHSTAY</span>
         </div>
         <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm p-2 sm:p-3">
-          <span class="font-black text-base sm:text-lg text-gray-800 tracking-widest">LIVV</span>
+          <span class="font-black text-base sm:text-lg text-gray-800 tracking-widest uppercase">LIVV</span>
         </div>
         <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm p-2 sm:p-3">
-          <span class="font-black text-base sm:text-lg text-gray-800 tracking-wider">TICK<span class="text-gray-600">TECH</span></span>
+          <span class="font-black text-base sm:text-lg text-gray-800 tracking-widest uppercase">TICKTECH</span>
         </div>
         <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm p-2 sm:p-3">
-          <span class="font-black text-base sm:text-lg text-gray-800 tracking-widest">NAXEX</span>
+          <span class="font-black text-base sm:text-lg text-gray-800 tracking-widest uppercase">NAXEX</span>
         </div>
         <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm p-2 sm:p-3">
-          <span class="font-black text-base sm:text-lg text-gray-800 tracking-wider">TRADE<span class="text-gray-600">NETWORKS</span></span>
+          <span class="font-black text-base sm:text-lg text-gray-800 tracking-widest uppercase">TRADENETWORKS</span>
         </div>
         <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm p-2 sm:p-3">
-          <span class="font-black text-base sm:text-lg text-gray-800 tracking-wider">FX<span class="text-gray-600">SOLUTIONS</span></span>
+          <span class="font-black text-base sm:text-lg text-gray-800 tracking-widest uppercase">FXSOLUTIONS</span>
         </div>
       </div>
     </div>
@@ -295,14 +319,18 @@
     });
 
     (function () {
-      const slides = Array.from(document.querySelectorAll('#testimonial-carousel .testimonial-slide'));const dotsWrap = document.getElementById('testimonial-dots');
-      if (!slides.length) return;
+      const container = document.getElementById('testimonial-carousel');
+      if (!container) return;
+      const slides = Array.from(container.querySelectorAll('.testimonial-slide'));
+      const dotsWrap = document.getElementById('testimonial-dots');
+      if (!slides.length || !dotsWrap) return;
 
-      let i = 0, timer = null;
+      let i = 0;
+      let timer = null;
 
+      // Build dots
       slides.forEach((_, idx) => {
         const b = document.createElement('button');
-        b.className = 'w-2.5 h-2.5 rounded-full bg-white/40';
         b.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
         b.addEventListener('click', () => { go(idx); restart(); });
         dotsWrap.appendChild(b);
@@ -310,23 +338,17 @@
 
       function render() {
         slides.forEach((el, idx) => el.classList.toggle('hidden', idx !== i));
-        Array.from(dotsWrap.children).forEach((d, idx) => {
-          d.classList.toggle('bg-white', idx === i);
-          d.classList.toggle('bg-white/40', idx !== i);
-        });
+        const dots = Array.from(dotsWrap.children);
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
       }
       function go(idx) { i = (idx + slides.length) % slides.length; render(); }
       function next() { go(i + 1); }
-      function prev() { go(i - 1); }
-      function start() { timer = setInterval(next, 5000); }
-      function stop() { if (timer) clearInterval(timer); timer = null; }
+      function start() { timer = setInterval(next, 4500); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
       function restart() { stop(); start(); }
 
-      render(); start(); restart(); }); restart(); });
-
-      const carousel = document.getElementById('testimonial-carousel');
-      carousel?.addEventListener('mouseenter', stop);
-      carousel?.addEventListener('mouseleave', start);
+      render();
+      start(); // always autoplay; no pause-on-hover
     })();
 
     (async function () {
