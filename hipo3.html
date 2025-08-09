@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sivan Kadosh | Fractional CPO for B2B SaaS Companies</title>
 
-  <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -20,351 +18,263 @@
     .accent-gold { color: #B48F00; }
     .btn-gold { background-color: #B48F00; transition: background-color .3s ease; }
     .btn-gold:hover { background-color: #9c7a00; }
-
     .faq-question.open .faq-answer { max-height: 200px; padding-top: 1rem; padding-bottom: 1rem; }
     .faq-question .faq-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .35s ease; }
     .faq-question.open .plus { display:none; }
     .faq-question:not(.open) .minus { display:none; }
-
     .sticky-cta { position: sticky; bottom: 0; z-index: 40; }
   </style>
 </head>
 <body class="bg-white text-gray-800">
-  <!-- Top notice / subtle urgency -->
-  <div class="bg-amber-50 text-amber-900 text-sm">
-    <div class="container mx-auto px-6 py-2 text-center">
+  <div class="bg-amber-50 text-amber-900 text-xs sm:text-sm">
+    <div class="container mx-auto px-4 sm:px-6 py-2 text-center">
       I work with up to 3 clients in parallel. <span class="font-semibold">1 slot currently open.</span>
     </div>
   </div>
 
-  <!-- Hero -->
   <header class="hero-bg">
-    <div class="container mx-auto px-6 py-16 md:py-24">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+    <div class="container mx-auto px-4 sm:px-6 py-14 md:py-24">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12">
         <div class="md:w-1/2 text-center md:text-left">
-          <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-4">
-            Your Roadmap is a Guess.<br><span class="accent-gold">Let's Turn It Into a Growth Engine.</span>
+          <h1 class="text-[2.2rem] md:text-6xl font-black text-gray-900 leading-tight md:leading-tight mb-4">
+            Your Roadmap is a Guess.<br>
+            <span class="accent-gold block text-[2.4rem] md:text-[3.9rem]">Let's Turn It Into a Growth Engine.</span>
           </h1>
-          <p class="text-lg md:text-xl text-gray-600 mb-6">
+          <p class="text-base sm:text-lg md:text-xl text-gray-600 mb-5 md:mb-6">
             Fractional CPO for growth-stage B2B SaaS. I align strategy, roadmap, and execution to drive predictable ARR.
           </p>
-
-          <!-- Short lead form -->
-          <form id="lead-form" class="bg-white/80 backdrop-blur rounded-2xl border border-gray-200 p-5 md:p-6 shadow-md" aria-label="Lead form">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <label class="block">
-                <span class="sr-only">Your name</span>
-                <input
-                  type="text" name="name" required
-                  placeholder="Your name"
-                  class="w-full h-12 rounded-lg border border-gray-300 px-4 text-gray-900 placeholder-gray-400
-                         focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition" />
-              </label>
-
-              <label class="block">
-                <span class="sr-only">Work email</span>
-                <input
-                  type="email" name="email" required
-                  placeholder="Work email"
-                  class="w-full h-12 rounded-lg border border-gray-300 px-4 text-gray-900 placeholder-gray-400
-                         focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition" />
-              </label>
-
-              <label class="block md:col-span-1">
-                <span class="sr-only">Biggest product challenge</span>
-                <input
-                  type="text" name="challenge"
-                  placeholder="Biggest product challenge"
-                  class="w-full h-12 rounded-lg border border-gray-300 px-4 text-gray-900 placeholder-gray-400
-                         focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition" />
-              </label>
-            </div>
-
-            <div class="mt-4 flex flex-col sm:flex-row items-center gap-3">
-              <button type="submit"
-                class="btn-gold text-white font-bold py-3 px-6 rounded-lg w-full sm:w-auto shadow hover:shadow-md">
-                Book a No-Obligation Strategy Call
-              </button>
-
-              <a href="https://cal.com/nxtgenpms/discovery-call" target="_blank" rel="noopener"
-                 class="underline text-sm text-gray-700 hover:text-gray-900">
-                Prefer to jump straight to my calendar?
-              </a>
-            </div>
-            <p class="mt-3 text-xs text-gray-500">No spam. I reply within 24 hours.</p>
-          </form>
-
-          <p class="text-sm text-gray-500 mt-3">
-            Led 300+ people orgs. Launched products generating $100M+. ISO and PCI compliant environments.
+          <a href="https://cal.com/nxtgenpms/discovery-call" target="_blank" rel="noopener" class="inline-block btn-gold text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg w-full sm:w-auto">
+            Book a No-Obligation Strategy Call
+          </a>
+          <p class="text-xs sm:text-sm text-gray-500 mt-3">
+            Led 300+ people orgs. Launched products generating $100M+.
           </p>
         </div>
         <div class="md:w-1/3 flex justify-center">
-          <img src="https://placehold.co/400x400/0A2540/FFFFFF?text=Sivan+Kadosh"
-               alt="Profile picture of Sivan Kadosh"
-               class="rounded-full shadow-2xl w-64 h-64 md:w-80 md:h-80 object-cover">
+          <img src="https://placehold.co/360x360/0A2540/FFFFFF?text=Sivan+Kadosh" alt="Profile picture of Sivan Kadosh" class="rounded-full shadow-2xl w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 object-cover">
         </div>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- Wordmark logos -->
-    <section class="py-10 bg-white">
-      <div class="container mx-auto px-6">
-        <p class="text-center text-gray-500 text-sm mb-6">Trusted by founders & SaaS teams</p>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-          <div class="flex items-center justify-center bg-gradient-to-r from-amber-100 to-amber-50 rounded-lg shadow-sm p-3">
-            <span class="font-black text-lg text-gray-800 tracking-wider">Touch<span class="text-amber-600">Stay</span></span>
-          </div>
-          <div class="flex items-center justify-center bg-gradient-to-r from-sky-100 to-sky-50 rounded-lg shadow-sm p-3">
-            <span class="font-black text-lg text-gray-800 tracking-wider">LIVV</span>
-          </div>
-          <div class="flex items-center justify-center bg-gradient-to-r from-green-100 to-green-50 rounded-lg shadow-sm p-3">
-            <span class="font-black text-lg text-gray-800 tracking-wider">Tick<span class="text-green-600">Tech</span></span>
-          </div>
-          <div class="flex items-center justify-center bg-gradient-to-r from-indigo-100 to-indigo-50 rounded-lg shadow-sm p-3">
-            <span class="font-black text-lg text-gray-800 tracking-wider">Naxex</span>
-          </div>
-          <div class="flex items-center justify-center bg-gradient-to-r from-purple-100 to-purple-50 rounded-lg shadow-sm p-3">
-            <span class="font-black text-lg text-gray-800 tracking-wider">Trade<span class="text-purple-600">Networks</span></span>
-          </div>
-          <div class="flex items-center justify-center bg-gradient-to-r from-red-100 to-red-50 rounded-lg shadow-sm p-3">
-            <span class="font-black text-lg text-gray-800 tracking-wider">FX<span class="text-red-600">Solutions</span></span>
-          </div>
+  <!-- Wordmark logos (monochrome) -->
+  <section class="py-8 sm:py-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6">
+      <p class="text-center text-gray-500 text-xs sm:text-sm mb-4 sm:mb-6">Trusted by founders & SaaS teams</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 text-center">
+        <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm p-2 sm:p-3">
+          <span class="font-black text-base sm:text-lg text-gray-800 tracking-wider">TOUCH<span class="text-gray-600">STAY</span></span>
+        </div>
+        <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm p-2 sm:p-3">
+          <span class="font-black text-base sm:text-lg text-gray-800 tracking-widest">LIVV</span>
+        </div>
+        <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm p-2 sm:p-3">
+          <span class="font-black text-base sm:text-lg text-gray-800 tracking-wider">TICK<span class="text-gray-600">TECH</span></span>
+        </div>
+        <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm p-2 sm:p-3">
+          <span class="font-black text-base sm:text-lg text-gray-800 tracking-widest">NAXEX</span>
+        </div>
+        <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm p-2 sm:p-3">
+          <span class="font-black text-base sm:text-lg text-gray-800 tracking-wider">TRADE<span class="text-gray-600">NETWORKS</span></span>
+        </div>
+        <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm p-2 sm:p-3">
+          <span class="font-black text-base sm:text-lg text-gray-800 tracking-wider">FX<span class="text-gray-600">SOLUTIONS</span></span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Pain -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">If Growth Has Stalled, the Problem is Likely Your Product Strategy.</h2>
-        <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
-          Many SaaS companies get stuck in the Messy Middle where initial enthusiasm meets real scaling challenges.
-        </p>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
-            <h3 class="text-xl font-bold mb-2">Chaotic Priorities</h3>
-            <p class="text-gray-600">Hard-working teams shipping the wrong features. No explicit link between roadmap and revenue goals.</p>
-          </div>
-          <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
-            <h3 class="text-xl font-bold mb-2">High Churn</h3>
-            <p class="text-gray-600">Competitors move faster and your product struggles to retain users across the lifecycle.</p>
-          </div>
-          <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
-            <h3 class="text-xl font-bold mb-2">Misalignment</h3>
-            <p class="text-gray-600">Sales promises one thing, dev builds another, marketing is unsure what to say to whom.</p>
-          </div>
+  <!-- Pain -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">If Growth Has Stalled, the Problem is Likely Your Product Strategy.</h2>
+      <p class="text-base sm:text-lg text-gray-600 mb-10 sm:mb-12 max-w-3xl mx-auto">
+        Many SaaS companies get stuck in the Messy Middle where initial enthusiasm meets real scaling challenges.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div class="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-sm">
+          <h3 class="text-lg sm:text-xl font-bold mb-2">Chaotic Priorities</h3>
+          <p class="text-gray-600">Hard-working teams shipping the wrong features. No explicit link between roadmap and revenue goals.</p>
         </div>
-        <div class="mt-10">
-          <a href="#cta" class="inline-block btn-gold text-white font-bold py-3 px-8 rounded-lg">Solve It Now</a>
+        <div class="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-sm">
+          <h3 class="text-lg sm:text-xl font-bold mb-2">High Churn</h3>
+          <p class="text-gray-600">Competitors move faster and your product struggles to retain users across the lifecycle.</p>
+        </div>
+        <div class="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-sm">
+          <h3 class="text-lg sm:text-xl font-bold mb-2">Misalignment</h3>
+          <p class="text-gray-600">Sales promises one thing, dev builds another, marketing is unsure what to say to whom.</p>
         </div>
       </div>
-    </section>
+      <div class="mt-8 sm:mt-10">
+        <a href="#cta" class="inline-block btn-gold text-white font-bold py-3 px-6 sm:py-3 sm:px-8 rounded-lg">Solve It Now</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Solution -->
-    <section class="py-20 bg-gray-50">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold">Get C-Level Product Leadership, Without the C-Level Cost.</h2>
-          <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">I join your leadership team fractionally to diagnose, align, and execute.</p>
+  <!-- Solution -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10 sm:mb-12">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold">Get C-Level Product Leadership, Without the C-Level Cost.</h2>
+        <p class="text-base sm:text-lg text-gray-600 mt-3 sm:mt-4 max-w-3xl mx-auto">I join your leadership team fractionally to diagnose, align, and execute.</p>
+      </div>
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-10 md:mb-12">
+        <div class="md:w-1/2">
+          <h3 class="text-xl sm:text-2xl font-bold mb-2"><span class="accent-gold">1. Data-Driven Strategy</span></h3>
+          <p class="text-gray-600">Deep diagnosis of market, competition, and usage data. Roadmap tied to ARR, LTV, and payback.</p>
         </div>
-        <div class="flex flex-col md:flex-row items-center gap-12 mb-12">
-          <div class="md:w-1/2">
-            <h3 class="text-2xl font-bold mb-2"><span class="accent-gold">1. Data-Driven Strategy</span></h3>
-            <p class="text-gray-600">Deep diagnosis of market, competition, and usage data. Roadmap tied to ARR, LTV, and payback.</p>
-          </div>
-          <div class="md:w-1/2">
-            <img src="https://placehold.co/600x400/0A2540/FFFFFF?text=Strategy" alt="Strategy" class="rounded-lg shadow-lg">
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-12">
-          <div class="md:w-1/2">
-            <h3 class="text-2xl font-bold mb-2"><span class="accent-gold">2. Lead Execution</span></h3>
-            <p class="text-gray-600">Run product rituals, mentor PMs, implement lean Agile to ship faster with quality.</p>
-          </div>
-          <div class="md:w-1/2">
-            <img src="https://placehold.co/600x400/EEEEEE/0A2540?text=Execution" alt="Execution" class="rounded-lg shadow-lg">
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row items-center gap-12">
-          <div class="md:w-1/2">
-            <h3 class="text-2xl font-bold mb-2"><span class="accent-gold">3. Accountable Outcomes</span></h3>
-            <p class="text-gray-600">Set KPI targets together. I stay on the hook for churn down, conversion up, CSAT up.</p>
-          </div>
-          <div class="md:w-1/2">
-            <img src="https://placehold.co/600x400/B48F00/FFFFFF?text=Results" alt="Results" class="rounded-lg shadow-lg">
-          </div>
-        </div>
-        <div class="text-center mt-12">
-          <a href="https://cal.com/nxtgenpms/discovery-call" target="_blank" rel="noopener"
-             class="inline-block btn-gold text-white font-bold py-4 px-8 rounded-lg">
-            Book Your Strategy Call
-          </a>
+        <div class="md:w-1/2">
+          <img src="https://placehold.co/600x400/0A2540/FFFFFF?text=Strategy" alt="Strategy" class="rounded-lg shadow-lg w-full h-auto">
         </div>
       </div>
-    </section>
-
-    <!-- Proof: stats + carousel -->
-    <section class="dark-bg text-white py-20">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12">The Experience That Makes the Difference.</h2>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          <div><p class="text-5xl font-black accent-gold">16+</p><p class="text-lg">Years in Product Leadership</p></div>
-          <div><p class="text-5xl font-black accent-gold">$100M+</p><p class="text-lg">Revenue from Launched Products</p></div>
-          <div><p class="text-5xl font-black accent-gold">300+</p><p class="text-lg">People Led</p></div>
-          <div><p class="text-5xl font-black accent-gold">ISO & PCI</p><p class="text-lg">Global Compliance</p></div>
+      <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 mb-10 md:mb-12">
+        <div class="md:w-1/2">
+          <h3 class="text-xl sm:text-2xl font-bold mb-2"><span class="accent-gold">2. Lead Execution</span></h3>
+          <p class="text-gray-600">Run product rituals, mentor PMs, implement lean Agile to ship faster with quality.</p>
         </div>
-
-        <!-- Carousel (one slide visible at a time) -->
-        <div id="testimonial-carousel" class="relative max-w-3xl mx-auto bg-white/10 rounded-lg p-8 overflow-hidden">
-          <div class="testimonial-slide">
-            <p class="text-lg italic mb-1">"Sivan translated strategic chaos into a focused plan. Within 6 months churn dropped 15%."</p>
-          </div>
-          <div class="testimonial-slide hidden">
-            <p class="text-lg italic mb-1">"He elevated our product org. Delivery time halved without sacrificing quality."</p>
-          </div>
-          <div class="testimonial-slide hidden">
-            <p class="text-lg italic mb-1">"Clear KPIs, ruthless prioritization, and a roadmap tied to revenue. Exactly what we needed."</p>
-          </div>
-
-          <!-- Arrows -->
-          <button id="prev-testimonial" aria-label="Previous"
-                  class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full px-3 py-2">
-            &#8249;
-          </button>
-          <button id="next-testimonial" aria-label="Next"
-                  class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full px-3 py-2">
-            &#8250;
-          </button>
-
-          <!-- Dots -->
-          <div id="testimonial-dots" class="mt-6 flex justify-center gap-2"></div>
-        </div>
-
-        <div class="mt-10">
-          <a href="#cta" class="inline-block btn-gold text-white font-bold py-3 px-8 rounded-lg">Let's Talk</a>
+        <div class="md:w-1/2">
+          <img src="https://placehold.co/600x400/EEEEEE/0A2540?text=Execution" alt="Execution" class="rounded-lg shadow-lg w-full h-auto">
         </div>
       </div>
-    </section>
-
-    <!-- Pricing (geo currency, plain 5000) -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Collaboration Models</h2>
-        <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
-          Fixed monthly retainer tailored from strategic advisory to full CPO ownership.
-        </p>
-
-        <div class="bg-gray-50 border-2 border-amber-300 p-8 rounded-lg inline-block shadow-lg">
-          <p class="text-lg text-gray-600">Strategic advisory packages start at</p>
-          <p class="text-5xl font-black text-gray-900 my-2" id="dynamic-price" data-base="5000">€5000</p>
-          <p class="text-lg text-gray-600" id="dynamic-price-caption">per month</p>
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div class="md:w-1/2">
+          <h3 class="text-xl sm:text-2xl font-bold mb-2"><span class="accent-gold">3. Accountable Outcomes</span></h3>
+          <p class="text-gray-600">Set KPI targets together. I stay on the hook for churn down, conversion up, CSAT up.</p>
         </div>
-
-        <div class="mt-8">
-          <a href="https://cal.com/nxtgenpms/discovery-call" target="_blank" rel="noopener"
-             class="inline-block btn-gold text-white font-bold py-4 px-8 rounded-lg">
-            Learn More & Schedule a Fit Call
-          </a>
+        <div class="md:w-1/2">
+          <img src="https://placehold.co/600x400/B48F00/FFFFFF?text=Results" alt="Results" class="rounded-lg shadow-lg w-full h-auto">
         </div>
       </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-20 bg-gray-50">
-      <div class="container mx-auto px-6 max-w-3xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-        <div class="space-y-4">
-          <div class="faq-question bg-white p-6 rounded-lg shadow-sm cursor-pointer">
-            <div class="flex justify-between items-center">
-              <h3 class="text-lg font-bold">What's the difference between you and hiring a full-time CPO?</h3>
-              <div>
-                <svg class="w-6 h-6 plus" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12M6 12h12"/></svg>
-                <svg class="w-6 h-6 minus" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12h12"/></svg>
-              </div>
-            </div>
-            <p class="faq-answer text-gray-600">
-              Senior CPO expertise at a fraction of the cost and commitment. Ideal when you need leadership not headcount.
-            </p>
-          </div>
-
-          <div class="faq-question bg-white p-6 rounded-lg shadow-sm cursor-pointer">
-            <div class="flex justify-between items-center">
-              <h3 class="text-lg font-bold">How long until we see results?</h3>
-              <div>
-                <svg class="w-6 h-6 plus" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12M6 12h12"/></svg>
-                <svg class="w-6 h-6 minus" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12h12"/></svg>
-              </div>
-            </div>
-            <p class="faq-answer text-gray-600">
-              Month 1 diagnosis and strategy. Month 2 alignment and velocity gains. Months 3–6 measurable KPI impact.
-            </p>
-          </div>
-
-          <div class="faq-question bg-white p-6 rounded-lg shadow-sm cursor-pointer">
-            <div class="flex justify-between items-center">
-              <h3 class="text-lg font-bold">What does onboarding look like?</h3>
-              <div>
-                <svg class="w-6 h-6 plus" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12M6 12h12"/></svg>
-                <svg class="w-6 h-6 minus" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12h12"/></svg>
-              </div>
-            </div>
-            <p class="faq-answer text-gray-600">
-              Fast and structured. Kickoff, stakeholder interviews, data review, integration within 1–2 weeks.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section id="cta" class="dark-bg text-white py-20">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Stop Guessing and Start Growing?</h2>
-        <p class="text-lg mb-8 max-w-2xl mx-auto">
-          Short, no-cost discovery call. We'll map challenges and confirm fit.
-        </p>
-        <a href="https://cal.com/nxtgenpms/discovery-call" target="_blank" rel="noopener"
-           class="inline-block btn-gold text-white font-bold py-4 px-10 rounded-lg text-xl shadow-lg">
-          Schedule Your Strategy Call Now
+      <div class="text-center mt-10 sm:mt-12">
+        <a href="https://cal.com/nxtgenpms/discovery-call" target="_blank" rel="noopener" class="inline-block btn-gold text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg">
+          Book Your Strategy Call
         </a>
-        <p class="mt-4 text-sm text-white/80">Prefer email? <a href="mailto:sivsiv@gmail.com?subject=Fractional%20CPO%20Discovery%20Call&body=Hi%20Sivan%2C%20I'd%20like%20to%20book%20a%20discovery%20call.%0A%0AName%3A%0ACompany%3A%0ABiggest%20challenge%3A" class="underline">Email me</a></p>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- Proof: stats + carousel -->
+  <section class="dark-bg text-white py-16 md:py-20">
+    <div class="container mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-12">The Experience That Makes the Difference.</h2>
+
+      <div class="grid grid-cols-3 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
+        <div><p class="text-4xl sm:text-5xl font-black accent-gold">16+</p><p class="text-base sm:text-lg">Years in Product Leadership</p></div>
+        <div><p class="text-4xl sm:text-5xl font-black accent-gold">$100M+</p><p class="text-base sm:text-lg">Revenue from Launched Products</p></div>
+        <div><p class="text-4xl sm:text-5xl font-black accent-gold">300+</p><p class="text-base sm:text-lg">People Led</p></div>
+      </div>
+
+      <div id="testimonial-carousel" class="relative max-w-3xl mx-auto bg-white/10 rounded-lg p-6 sm:p-8 overflow-hidden">
+        <div class="testimonial-slide">
+          <p class="text-base sm:text-lg italic mb-1">"Sivan translated strategic chaos into a focused plan. Within 6 months churn dropped 15%."</p>
+        </div>
+        <div class="testimonial-slide hidden">
+          <p class="text-base sm:text-lg italic mb-1">"He elevated our product org. Delivery time halved without sacrificing quality."</p>
+        </div>
+        <div class="testimonial-slide hidden">
+          <p class="text-base sm:text-lg italic mb-1">"Clear KPIs, ruthless prioritization, and a roadmap tied to revenue. Exactly what we needed."</p>
+        </div>
+        <button id="prev-testimonial" aria-label="Previous" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full px-3 py-2">&#8249;</button>
+        <button id="next-testimonial" aria-label="Next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full px-3 py-2">&#8250;</button>
+        <div id="testimonial-dots" class="mt-4 sm:mt-6 flex justify-center gap-2"></div>
+      </div>
+
+      <div class="mt-8 sm:mt-10">
+        <a href="#cta" class="inline-block btn-gold text-white font-bold py-3 px-6 sm:py-3 sm:px-8 rounded-lg">Let's Talk</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Collaboration Models</h2>
+      <p class="text-base sm:text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+        Fixed monthly retainer tailored from strategic advisory to full CPO ownership.
+      </p>
+      <div class="bg-gray-50 border-2 border-amber-300 p-6 sm:p-8 rounded-lg inline-block shadow-lg">
+        <p class="text-base sm:text-lg text-gray-600">Strategic advisory packages start at</p>
+        <p class="text-4xl sm:text-5xl font-black text-gray-900 my-2" id="dynamic-price" data-base="5000">€5000</p>
+        <p class="text-base sm:text-lg text-gray-600" id="dynamic-price-caption">per month</p>
+      </div>
+      <div class="mt-8">
+        <a href="https://cal.com/nxtgenpms/discovery-call" target="_blank" rel="noopener" class="inline-block btn-gold text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg">
+          Learn More & Schedule a Fit Call
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 max-w-3xl">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 sm:mb-12">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <div class="faq-question bg-white p-5 sm:p-6 rounded-lg shadow-sm cursor-pointer">
+          <div class="flex justify-between items-center">
+            <h3 class="text-base sm:text-lg font-bold">What's the difference between you and hiring a full-time CPO?</h3>
+            <div>
+              <svg class="w-6 h-6 plus" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12M6 12h12"/></svg>
+              <svg class="w-6 h-6 minus" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12h12"/></svg>
+            </div>
+          </div>
+          <p class="faq-answer text-gray-600">Senior CPO expertise at a fraction of the cost and commitment. Ideal when you need leadership not headcount.</p>
+        </div>
+
+        <div class="faq-question bg-white p-5 sm:p-6 rounded-lg shadow-sm cursor-pointer">
+          <div class="flex justify-between items-center">
+            <h3 class="text-base sm:text-lg font-bold">How long until we see results?</h3>
+            <div>
+              <svg class="w-6 h-6 plus" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12M6 12h12"/></svg>
+              <svg class="w-6 h-6 minus" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12h12"/></svg>
+            </div>
+          </div>
+          <p class="faq-answer text-gray-600">Month 1 diagnosis and strategy. Month 2 alignment and velocity gains. Months 3–6 measurable KPI impact.</p>
+        </div>
+
+        <div class="faq-question bg-white p-5 sm:p-6 rounded-lg shadow-sm cursor-pointer">
+          <div class="flex justify-between items-center">
+            <h3 class="text-base sm:text-lg font-bold">What does onboarding look like?</h3>
+            <div>
+              <svg class="w-6 h-6 plus" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12M6 12h12"/></svg>
+              <svg class="w-6 h-6 minus" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12h12"/></svg>
+            </div>
+          </div>
+          <p class="faq-answer text-gray-600">Fast and structured. Kickoff, stakeholder interviews, data review, integration within 1–2 weeks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section id="cta" class="dark-bg text-white py-16 md:py-20">
+    <div class="container mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Ready to Stop Guessing and Start Growing?</h2>
+      <p class="text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto">
+        Short, no-cost discovery call. We'll map challenges and confirm fit.
+      </p>
+      <a href="https://cal.com/nxtgenpms/discovery-call" target="_blank" rel="noopener" class="inline-block btn-gold text-white font-bold py-3 sm:py-4 px-8 rounded-lg text-lg shadow-lg">
+        Schedule Your Strategy Call Now
+      </a>
+      <p class="mt-4 text-xs sm:text-sm text-white/80">Prefer email? <a href="mailto:sivsiv@gmail.com?subject=Fractional%20CPO%20Discovery%20Call&body=Hi%20Sivan%2C%20I'd%20like%20to%20book%20a%20discovery%20call.%0A%0AName%3A%0ACompany%3A%0ABiggest%20challenge%3A" class="underline">Email me</a></p>
+    </div>
+  </section>
 
   <footer class="bg-gray-100 py-8">
-    <div class="container mx-auto px-6 text-center text-gray-600">
+    <div class="container mx-auto px-4 sm:px-6 text-center text-gray-600">
       <p>&copy; 2025 Sivan Kadosh | All Rights Reserved.</p>
       <p class="mt-2">sivsiv@gmail.com | <a href="https://www.linkedin.com/in/3ag/" class="underline" target="_blank" rel="noopener">LinkedIn Profile</a></p>
     </div>
   </footer>
 
-  <!-- Sticky CTA -->
   <div class="sticky-cta bg-white/90 backdrop-blur border-t border-gray-200">
-    <div class="container mx-auto px-6 py-3 flex items-center justify-between gap-3">
-      <p class="text-sm text-gray-600 truncate">Turn your roadmap into a growth engine.</p>
-      <a href="https://cal.com/nxtgenpms/discovery-call" target="_blank" rel="noopener"
-         class="btn-gold text-white font-semibold py-2 px-4 rounded-lg">Book a Call</a>
+    <div class="container mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-3">
+      <p class="text-xs sm:text-sm text-gray-600 truncate">Turn your roadmap into a growth engine.</p>
+      <a href="https://cal.com/nxtgenpms/discovery-call" target="_blank" rel="noopener" class="btn-gold text-white font-semibold py-2 px-4 rounded-lg">Book a Call</a>
     </div>
   </div>
 
-  <!-- Scripts -->
   <script>
-    // Lead form: open Cal.com with prefilled query
-    document.getElementById('lead-form')?.addEventListener('submit', function(e){
-      e.preventDefault();
-      const fd = new FormData(this);
-      const name = encodeURIComponent(fd.get('name') || '');
-      const email = encodeURIComponent(fd.get('email') || '');
-      const challenge = encodeURIComponent(fd.get('challenge') || '');
-      const url = `https://cal.com/nxtgenpms/discovery-call?name=${name}&email=${email}&notes=${challenge}`;
-      window.open(url, '_blank', 'noopener');
-    });
-
-    // FAQ toggles (one open at a time)
     document.querySelectorAll('.faq-question').forEach(item => {
       item.addEventListener('click', () => {
         document.querySelectorAll('.faq-question.open').forEach(openItem => {
@@ -374,7 +284,6 @@
       });
     });
 
-    // Testimonials carousel (one at a time, auto 5s + arrows + dots)
     (function () {
       const slides = Array.from(document.querySelectorAll('#testimonial-carousel .testimonial-slide'));
       const prevBtn = document.getElementById('prev-testimonial');
@@ -384,7 +293,6 @@
 
       let i = 0, timer = null;
 
-      // Build dots
       slides.forEach((_, idx) => {
         const b = document.createElement('button');
         b.className = 'w-2.5 h-2.5 rounded-full bg-white/40';
@@ -416,7 +324,6 @@
       carousel?.addEventListener('mouseleave', start);
     })();
 
-    // Geo-based currency (symbol only, plain 5000)
     (async function () {
       const priceEl = document.getElementById('dynamic-price');
       const base = Number(priceEl?.dataset?.base || 5000);
