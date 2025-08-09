@@ -23,6 +23,8 @@
     .faq-question.open .plus { display:none; }
     .faq-question:not(.open) .minus { display:none; }
     .sticky-cta { position: sticky; bottom: 0; z-index: 40; }
+      /* Clamp paragraphs to avoid overflow in carousel */
+    .clamp-5 { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
   </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -166,13 +168,22 @@
 
       <div id="testimonial-carousel" class="relative max-w-3xl mx-auto bg-white/10 rounded-lg p-6 sm:p-8 overflow-hidden">
         <div class="testimonial-slide">
-          <p class="text-base sm:text-lg italic mb-1">"Sivan translated strategic chaos into a focused plan. Within 6 months churn dropped 15%."</p>
+          <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan is an excellent product manager, product leader and team member. He cares passionately about delighting customers and is highly capable at all levels from strategic direction to writing detailed documents. I would recommend him 10/10 to any company — you will be lucky to have him."</p>
         </div>
         <div class="testimonial-slide hidden">
-          <p class="text-base sm:text-lg italic mb-1">"He elevated our product org. Delivery time halved without sacrificing quality."</p>
+          <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan continues to provide hugely valuable insight, both in terms of his commercial perspective and the findings of his product / market research. He brings energy, focus and determination to his work and is a greatly valued member of the team. Highly recommended."</p>
         </div>
         <div class="testimonial-slide hidden">
-          <p class="text-base sm:text-lg italic mb-1">"Clear KPIs, ruthless prioritization, and a roadmap tied to revenue. Exactly what we needed."</p>
+          <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan has recently taken over as interim Product Director for the company and is doing an excellent job, both on a strategic and operational level. He has a strong sense of what matters commercially as well as ensuring the product team are aligned, focused and productive. Expert, dedicated and passionate."</p>
+        </div>
+        <div class="testimonial-slide hidden">
+          <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan is an excellent product manager and I wholeheartedly recommend him. He has created value in a variety of ways, from top‑down vision/mission/goal work with the senior leadership team to taking on complex business analysis and wireframing tasks. He is indispensable and I'm hugely grateful for his work."</p>
+        </div>
+        <div class="testimonial-slide hidden">
+          <p class="text-base sm:text-lg italic mb-1 clamp-5">"He was extremely professional and understands product management extremely well. I had excellent work done by him and will be going back for more PM‑related tasks. Sivan is someone you can count on for all PM and Agile related!"</p>
+        </div>
+        <div class="testimonial-slide hidden">
+          <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan is the most amazing professional product manager I've ever hired. I was extremely satisfied with the results and the way things were executed and delivered. His dedication and work hours were beyond expectations!"</p>
         </div>
         <button id="prev-testimonial" aria-label="Previous" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full px-3 py-2">&#8249;</button>
         <button id="next-testimonial" aria-label="Next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full px-3 py-2">&#8250;</button>
