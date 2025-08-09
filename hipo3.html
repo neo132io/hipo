@@ -185,8 +185,8 @@
         <div class="testimonial-slide hidden">
           <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan is the most amazing professional product manager I've ever hired. I was extremely satisfied with the results and the way things were executed and delivered. His dedication and work hours were beyond expectations!"</p>
         </div>
-        <button id="prev-testimonial" aria-label="Previous" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full px-3 py-2">&#8249;</button>
-        <button id="next-testimonial" aria-label="Next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full px-3 py-2">&#8250;</button>
+        
+        
         <div id="testimonial-dots" class="mt-4 sm:mt-6 flex justify-center gap-2"></div>
       </div>
 
@@ -295,10 +295,7 @@
     });
 
     (function () {
-      const slides = Array.from(document.querySelectorAll('#testimonial-carousel .testimonial-slide'));
-      const prevBtn = document.getElementById('prev-testimonial');
-      const nextBtn = document.getElementById('next-testimonial');
-      const dotsWrap = document.getElementById('testimonial-dots');
+      const slides = Array.from(document.querySelectorAll('#testimonial-carousel .testimonial-slide'));const dotsWrap = document.getElementById('testimonial-dots');
       if (!slides.length) return;
 
       let i = 0, timer = null;
@@ -325,9 +322,7 @@
       function stop() { if (timer) clearInterval(timer); timer = null; }
       function restart() { stop(); start(); }
 
-      render(); start();
-      nextBtn?.addEventListener('click', () => { next(); restart(); });
-      prevBtn?.addEventListener('click', () => { prev(); restart(); });
+      render(); start(); restart(); }); restart(); });
 
       const carousel = document.getElementById('testimonial-carousel');
       carousel?.addEventListener('mouseenter', stop);
