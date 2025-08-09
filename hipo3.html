@@ -267,9 +267,9 @@
   </footer>
 
   <div class="sticky-cta bg-white/90 backdrop-blur border-t border-gray-200">
-    <div class="container mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex flex-col sm:flex-row items-center sm:justify-between gap-2 sm:gap-3">
+    <div class="container mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 sm:gap-3">
       <p class="text-sm sm:text-base font-semibold text-gray-700 text-center sm:text-left leading-snug">Turn your roadmap into a growth engine.</p>
-      <a href="https://cal.com/nxtgenpms/discovery-call" target="_blank" rel="noopener" class="btn-gold text-white font-semibold py-2 px-5 rounded-lg w-full sm:w-auto">Book a Call</a>
+      <a href="https://cal.com/nxtgenpms/discovery-call" target="_blank" rel="noopener" class="btn-gold text-white font-semibold py-2 px-5 rounded-lg w-full sm:w-auto self-center sm:self-auto">Book a Call</a>
     </div>
   </div>
 
@@ -347,6 +347,18 @@
           if (EUROPE_CC.has(cc)) return 'EUR';
           return 'EUR';
         } catch {
+          // Fallback: use time zone first, then language
+          try {
+            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+            if (tz.startsWith('Europe/')) return 'EUR';
+            if (tz.startsWith('America/')) return 'USD';
+          } catch {}
+          const lang = (navigator.language || '').toLowerCase();
+          if (lang.includes('-gb')) return 'GBP';
+          if (lang.includes('-us')) return 'USD';
+          return 'EUR';
+        }
+      } catch {
           const lang = (navigator.language || '').toLowerCase();
           if (lang.includes('-us')) return 'USD';
           if (lang.includes('-gb')) return 'GBP';
