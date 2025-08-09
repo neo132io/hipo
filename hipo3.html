@@ -33,9 +33,8 @@
     /* Clamp paragraphs to avoid overflow in carousel */
     .clamp-5 { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
 
-    /* Marquee (top notice) */
-    .marquee{position:relative; overflow:hidden; height:1.75rem; display:block;}
-    .marquee__text{display:inline-block; white-space:nowrap; padding-right:3rem;}
+    /* Top notice bar (no scrolling, single instance) */
+    .notice { height:1.75rem; display:flex; align-items:center; }
 
     /* Carousel dots */
     #testimonial-dots button{ width:10px; height:10px; border-radius:9999px; background:rgba(255,255,255,.4); display:inline-block; }
@@ -43,11 +42,11 @@
   </style>
 </head>
 <body class="bg-white text-gray-800">
-  <!-- Top availability bar -->
+  <!-- Top availability bar (single line, no duplicate) -->
   <div class="bg-amber-50 text-amber-900 text-xs sm:text-sm">
     <div class="container mx-auto px-4 sm:px-6 py-2">
-      <div id="availability-marquee" class="marquee">
-        <span id="marquee-text" class="marquee__text"></span>
+      <div class="notice">
+        <span id="availability-text"></span>
       </div>
     </div>
   </div>
@@ -179,7 +178,7 @@
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-12">The Experience That Makes the Difference.</h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
-        <div><p class="text-4xl sm:text-5xl font-black accent-gold">16+</p><p class="text-base sm:text-lg">Years in Product Leadership</p></div>
+        <div><p class="text-4xl sm:text-5xl font-black accent-gold">18+</p><p class="text-base sm:text-lg">Years in Product Leadership</p></div>
         <div><p class="text-4xl sm:text-5xl font-black accent-gold">$100M+</p><p class="text-base sm:text-lg">Revenue from Launched Products</p></div>
         <div><p class="text-4xl sm:text-5xl font-black accent-gold">300+</p><p class="text-base sm:text-lg">People Led</p></div>
       </div>
@@ -339,7 +338,7 @@
       render(); start();
     })();
 
-    // Dynamic currency (fallback heuristics, privacy-friendly)
+    // Dynamic currency (fallback heuristics)
     (async function () {
       const priceEl = document.getElementById('dynamic-price');
       const base = Number(priceEl?.dataset?.base || 5000);
@@ -376,13 +375,10 @@
       render(await detectCurrency());
     })();
 
-    // Availability marquee with underline on date+time and bold on slot
+    // Availability line: underline the date/time; bold the slot; random 12:00–4:59pm; show ONCE
     (function(){
-      const root = document.getElementById('availability-marquee');
-      if(!root) return;
-      const first = root.querySelector('#marquee-text');
-      if(!first) return;
-
+      const el = document.getElementById('availability-text');
+      if(!el) return;
       const now = new Date();
       const dd = String(now.getDate()).padStart(2,'0');
       const mm = String(now.getMonth()+1).padStart(2,'0');
@@ -391,37 +387,7 @@
       const h12 = hoursPool[Math.floor(Math.random()*hoursPool.length)];
       const m = String(Math.floor(Math.random()*60)).padStart(2,'0');
       const timeStr = `${h12}:${m}pm`;
-
-      const prefix = `Update ${dd}/${mm}/${yyyy} ${timeStr}:`;
-      const message = ` I work with up to 3 clients in parallel. `;
-      const suffix = `<strong>1 slot currently open.</strong>`;
-
-      // Use innerHTML to allow underline + bold formatting
-      first.innerHTML = `<u>${prefix}</u>${message}${suffix}`;
-
-      const second = first.cloneNode(true);
-      root.appendChild(second);
-
-      let w = first.offsetWidth;
-      const spacing = 48; // px
-      let x1 = 0; let x2 = w + spacing;
-      const speed = matchMedia('(max-width:640px)').matches ? 40 : 60; // px/sec
-      [first, second].forEach(el=>{ el.style.position='absolute'; el.style.left='0'; el.style.willChange='transform'; });
-      function recalc(){ w = first.offsetWidth; x1 = 0; x2 = w + spacing; }
-      window.addEventListener('resize', recalc);
-      let last = null;
-      function tick(ts){
-        if(last == null) last = ts;
-        const dt = (ts - last)/1000; last = ts;
-        const dx = speed * dt;
-        x1 -= dx; x2 -= dx;
-        if(x1 <= -w - spacing) x1 = x2 + w + spacing;
-        if(x2 <= -w - spacing) x2 = x1 + w + spacing;
-        first.style.transform = `translateX(${x1}px)`;
-        second.style.transform = `translateX(${x2}px)`;
-        requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
+      el.innerHTML = `<u>Update ${dd}/${mm}/${yyyy} ${timeStr}:</u> I work with up to 3 clients in parallel. <strong>1 slot currently open.</strong>`;
     })();
   </script>
 </body>
