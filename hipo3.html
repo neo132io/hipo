@@ -56,7 +56,7 @@
   <div class="bg-amber-50 text-amber-900 text-xs sm:text-sm">
     <div class="container mx-auto px-4 sm:px-6 py-2">
       <div id="availability-marquee" class="marquee">
-        <span class="marquee__text">I work with up to 3 clients in parallel. <span class="font-semibold">1 slot currently open.</span></span>
+        <span id="marquee-text" class="marquee__text"></span></span>
       </div>
     </div>
   </div>
@@ -394,12 +394,25 @@
 
       render(await detectCurrency());
     })();
-      // Seamless marquee without duplicated visible text
+      // Seamless marquee with dynamic date + random time (12–4pm)
     (function(){
       const root = document.getElementById('availability-marquee');
       if(!root) return;
-      const first = root.querySelector('.marquee__text');
+      const first = root.querySelector('#marquee-text');
       if(!first) return;
+
+      // Build date in DD/MM/YYYY and random time between 12:00pm–4:59pm
+      const now = new Date();
+      const dd = String(now.getDate()).padStart(2,'0');
+      const mm = String(now.getMonth()+1).padStart(2,'0');
+      const yyyy = now.getFullYear();
+      const hoursPool = [12,1,2,3,4];
+      const h12 = hoursPool[Math.floor(Math.random()*hoursPool.length)];
+      const m = String(Math.floor(Math.random()*60)).padStart(2,'0');
+      const timeStr = `${h12}:${m}pm`;
+      const text = `Update ${dd}/${mm}/${yyyy} ${timeStr}: I work with up to 3 clients in parallel. 1 slot currently open.`;
+      first.textContent = text;
+
       const second = first.cloneNode(true);
       root.appendChild(second);
 
