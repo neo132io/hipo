@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sivan Kadosh | Fractional CPO for B2B SaaS Companies</title>
 
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -18,48 +20,35 @@
     .accent-gold { color: #B48F00; }
     .btn-gold { background-color: #B48F00; transition: background-color .3s ease; }
     .btn-gold:hover { background-color: #9c7a00; }
+
+    /* FAQ accordion */
     .faq-question.open .faq-answer { max-height: 200px; padding-top: 1rem; padding-bottom: 1rem; }
     .faq-question .faq-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .35s ease; }
     .faq-question.open .plus { display:none; }
     .faq-question:not(.open) .minus { display:none; }
+
+    /* Sticky CTA */
     .sticky-cta { position: sticky; bottom: 0; z-index: 40; }
-      /* Clamp paragraphs to avoid overflow in carousel */
-    .clamp-5 { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
-      /* Marquee (top notice) */
-    .marquee{position:relative; overflow:hidden;}
-    .marquee__inner{display:inline-block; white-space:nowrap; will-change:transform; animation:marquee 18s linear infinite;}
-    @keyframes marquee{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
-    @media (max-width:640px){.marquee__inner{animation-duration:22s}}
-    @media (prefers-reduced-motion: reduce){.marquee__inner{animation:none}}
+
     /* Clamp paragraphs to avoid overflow in carousel */
     .clamp-5 { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
-      /* Marquee (top notice) */
-    .marquee{position:relative; overflow:hidden;}
-    .marquee__inner{display:inline-block; white-space:nowrap; will-change:transform; animation:marquee 18s linear infinite;}
-    @keyframes marquee{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
-    @media (max-width:640px){.marquee__inner{animation-duration:22s}}
-    @media (prefers-reduced-motion: reduce){.marquee__inner{animation:none}}
-    /* Clamp paragraphs to avoid overflow in carousel */
-    .clamp-5 { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
-    /* Carousel dots explicit style */
-    #testimonial-dots button{ width:10px; height:10px; border-radius:9999px; background:rgba(255,255,255,.4); display:inline-block; }
-    #testimonial-dots button.active{ background:#FFFFFF; }
-      /* Marquee (top notice) */
+
+    /* Marquee (top notice) */
     .marquee{position:relative; overflow:hidden; height:1.75rem; display:block;}
     .marquee__text{display:inline-block; white-space:nowrap; padding-right:3rem;}
-    /* Carousel dots explicit style */
+
+    /* Carousel dots */
     #testimonial-dots button{ width:10px; height:10px; border-radius:9999px; background:rgba(255,255,255,.4); display:inline-block; }
     #testimonial-dots button.active{ background:#FFFFFF; }
   </style>
 </head>
 <body class="bg-white text-gray-800">
+  <!-- Top availability bar -->
   <div class="bg-amber-50 text-amber-900 text-xs sm:text-sm">
     <div class="container mx-auto px-4 sm:px-6 py-2">
       <div id="availability-marquee" class="marquee">
-        <span id="marquee-text" class="marquee__text"></span></span>
+        <span id="marquee-text" class="marquee__text"></span>
       </div>
-    </div>
-  </div>
     </div>
   </div>
 
@@ -197,7 +186,7 @@
 
       <div id="testimonial-carousel" class="relative max-w-3xl mx-auto bg-white/10 rounded-lg p-6 sm:p-8 overflow-hidden">
         <div class="testimonial-slide">
-          <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan is an excellent product manager, product leader and team member. He cares passionately about delighting customers and is highly capable at all levels from strategic direction to writing detailed documents. I would recommend him 10/10 to any company — you will be lucky to have him."</p>
+          <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan is an excellent product manager, product leader and team member. He cares passionately about delighting customers and is highly capable at all levels from strategic direction to writing detailed documents. I would recommend him 10/10 to any company - you will be lucky to have him."</p>
         </div>
         <div class="testimonial-slide hidden">
           <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan continues to provide hugely valuable insight, both in terms of his commercial perspective and the findings of his product / market research. He brings energy, focus and determination to his work and is a greatly valued member of the team. Highly recommended."</p>
@@ -206,16 +195,14 @@
           <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan has recently taken over as interim Product Director for the company and is doing an excellent job, both on a strategic and operational level. He has a strong sense of what matters commercially as well as ensuring the product team are aligned, focused and productive. Expert, dedicated and passionate."</p>
         </div>
         <div class="testimonial-slide hidden">
-          <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan is an excellent product manager and I wholeheartedly recommend him. He has created value in a variety of ways, from top‑down vision/mission/goal work with the senior leadership team to taking on complex business analysis and wireframing tasks. He is indispensable and I'm hugely grateful for his work."</p>
+          <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan is an excellent product manager and I wholeheartedly recommend him. He has created value in a variety of ways, from top-down vision/mission/goal work with the senior leadership team to taking on complex business analysis and wireframing tasks. He is indispensable and I'm hugely grateful for his work."</p>
         </div>
         <div class="testimonial-slide hidden">
-          <p class="text-base sm:text-lg italic mb-1 clamp-5">"He was extremely professional and understands product management extremely well. I had excellent work done by him and will be going back for more PM‑related tasks. Sivan is someone you can count on for all PM and Agile related!"</p>
+          <p class="text-base sm:text-lg italic mb-1 clamp-5">"He was extremely professional and understands product management extremely well. I had excellent work done by him and will be going back for more PM-related tasks. Sivan is someone you can count on for all PM and Agile related!"</p>
         </div>
         <div class="testimonial-slide hidden">
           <p class="text-base sm:text-lg italic mb-1 clamp-5">"Sivan is the most amazing professional product manager I've ever hired. I was extremely satisfied with the results and the way things were executed and delivered. His dedication and work hours were beyond expectations!"</p>
         </div>
-        
-        
         <div id="testimonial-dots" class="mt-4 sm:mt-6 flex justify-center gap-2"></div>
       </div>
 
@@ -302,7 +289,7 @@
   <footer class="bg-gray-100 py-8">
     <div class="container mx-auto px-4 sm:px-6 text-center text-gray-600">
       <p>&copy; 2025 Sivan Kadosh | All Rights Reserved.</p>
-      <p class="mt-2">sivsiv@gmail.com | <a href="https://www.linkedin.com/in/3ag/" class="underline" target="_blank" rel="noopener">LinkedIn Profile</a></p>
+      <p class="mt-2"><a href="mailto:sivsiv@gmail.com" class="underline">sivsiv@gmail.com</a> | <a href="https://www.linkedin.com/in/3ag/" class="underline" target="_blank" rel="noopener">LinkedIn Profile</a></p>
     </div>
   </footer>
 
@@ -314,6 +301,7 @@
   </div>
 
   <script>
+    // FAQ toggle
     document.querySelectorAll('.faq-question').forEach(item => {
       item.addEventListener('click', () => {
         document.querySelectorAll('.faq-question.open').forEach(openItem => {
@@ -323,6 +311,7 @@
       });
     });
 
+    // Testimonials carousel (one at a time, auto-rotate)
     (function () {
       const container = document.getElementById('testimonial-carousel');
       if (!container) return;
@@ -330,46 +319,39 @@
       const dotsWrap = document.getElementById('testimonial-dots');
       if (!slides.length || !dotsWrap) return;
 
-      let i = 0;
-      let timer = null;
-
-      // Build dots
+      let i = 0; let timer = null;
       slides.forEach((_, idx) => {
         const b = document.createElement('button');
         b.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
         b.addEventListener('click', () => { go(idx); restart(); });
         dotsWrap.appendChild(b);
       });
-
-      function render() {
+      function render(){
         slides.forEach((el, idx) => el.classList.toggle('hidden', idx !== i));
         const dots = Array.from(dotsWrap.children);
         dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
       }
-      function go(idx) { i = (idx + slides.length) % slides.length; render(); }
-      function next() { go(i + 1); }
-      function start() { timer = setInterval(next, 4500); }
-      function stop() { if (timer) { clearInterval(timer); timer = null; } }
-      function restart() { stop(); start(); }
-
-      render();
-      start(); // always autoplay; no pause-on-hover
+      function go(idx){ i = (idx + slides.length) % slides.length; render(); }
+      function next(){ go(i + 1); }
+      function start(){ timer = setInterval(next, 4500); }
+      function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+      function restart(){ stop(); start(); }
+      render(); start();
     })();
 
+    // Dynamic currency (fallback heuristics, privacy-friendly)
     (async function () {
       const priceEl = document.getElementById('dynamic-price');
       const base = Number(priceEl?.dataset?.base || 5000);
       const EUROPE_CC = new Set(['AL','AD','AM','AT','AZ','BY','BE','BA','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GB','GE','GR','HR','HU','IE','IS','IT','KZ','XK','LI','LT','LU','LV','MC','MD','ME','MK','MT','NO','NL','PL','PT','RO','RU','SE','SI','SK','SM','TR','UA','VA']);
-
-      function render(curr) {
+      function render(curr){
         if (!priceEl) return;
         const symbol = curr === 'USD' ? '$' : curr === 'GBP' ? '£' : '€';
         priceEl.textContent = symbol + base;
         const cap = document.getElementById('dynamic-price-caption');
         if (cap) cap.setAttribute('data-currency', curr);
       }
-
-      async function detectCurrency() {
+      async function detectCurrency(){
         try {
           const res = await fetch('https://ipapi.co/json/');
           if (!res.ok) throw new Error('geo failed');
@@ -391,17 +373,16 @@
           return 'EUR';
         }
       }
-
       render(await detectCurrency());
     })();
-      // Seamless marquee with dynamic date + random time (12–4pm)
+
+    // Availability marquee with underline on date+time and bold on slot
     (function(){
       const root = document.getElementById('availability-marquee');
       if(!root) return;
       const first = root.querySelector('#marquee-text');
       if(!first) return;
 
-      // Build date in DD/MM/YYYY and random time between 12:00pm–4:59pm
       const now = new Date();
       const dd = String(now.getDate()).padStart(2,'0');
       const mm = String(now.getMonth()+1).padStart(2,'0');
@@ -410,23 +391,24 @@
       const h12 = hoursPool[Math.floor(Math.random()*hoursPool.length)];
       const m = String(Math.floor(Math.random()*60)).padStart(2,'0');
       const timeStr = `${h12}:${m}pm`;
-      const text = `Update ${dd}/${mm}/${yyyy} ${timeStr}: I work with up to 3 clients in parallel. 1 slot currently open.`;
-      first.textContent = text;
+
+      const prefix = `Update ${dd}/${mm}/${yyyy} ${timeStr}:`;
+      const message = ` I work with up to 3 clients in parallel. `;
+      const suffix = `<strong>1 slot currently open.</strong>`;
+
+      // Use innerHTML to allow underline + bold formatting
+      first.innerHTML = `<u>${prefix}</u>${message}${suffix}`;
 
       const second = first.cloneNode(true);
       root.appendChild(second);
 
       let w = first.offsetWidth;
       const spacing = 48; // px
-      let x1 = 0;
-      let x2 = w + spacing;
+      let x1 = 0; let x2 = w + spacing;
       const speed = matchMedia('(max-width:640px)').matches ? 40 : 60; // px/sec
-
       [first, second].forEach(el=>{ el.style.position='absolute'; el.style.left='0'; el.style.willChange='transform'; });
-
       function recalc(){ w = first.offsetWidth; x1 = 0; x2 = w + spacing; }
       window.addEventListener('resize', recalc);
-
       let last = null;
       function tick(ts){
         if(last == null) last = ts;
