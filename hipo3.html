@@ -33,11 +33,36 @@
     /* Clamp paragraphs to avoid overflow in carousel */
     .clamp-5 { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
 
-    /* Top scrolling notice (single instance, with 2s delay) */
-    .marquee{ position:relative; overflow:hidden; height:2rem; display:flex; align-items:center; }
-    .marquee__inner{ position:absolute; left:0; top:0; display:inline-block; white-space:nowrap; will-change:transform; animation:scroll-left 22s linear infinite; animation-delay: 1s; font-size: 0.85rem; }
-    @keyframes scroll-left{ 0%{ transform:translateX(0);} 100%{ transform:translateX(-100%);} }
-    @media (max-width:640px){ .marquee__inner{ animation-duration:12s; } }
+    /* Top notice WITHOUT scrolling */
+    .marquee{
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: .25rem 0; /* גובה גמיש */
+    }
+    .marquee__inner{
+      position: static;
+      white-space: normal;   /* מאפשר שבירת שורות */
+      animation: none;       /* ביטול תנועה */
+      font-size: 0.85rem;
+      line-height: 1.25rem;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+    /* במובייל: טיפה קטן, הגבלה לשתי שורות */
+    @media (max-width:640px){
+      .marquee__inner{
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;      /* עד 2 שורות */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
 
     /* Carousel dots */
     #testimonial-dots button{ width:10px; height:10px; border-radius:9999px; background:rgba(255,255,255,.4); display:inline-block; }
@@ -49,7 +74,7 @@
   <div class="bg-amber-50 text-amber-900 text-xs sm:text-sm">
     <div class="container mx-auto px-4 sm:px-6 py-2">
       <div class="marquee">
-        <span id="availability-text" class="marquee__inner" style="animation-delay:2s;"></span>
+        <span id="availability-text" class="marquee__inner"></span>
       </div>
     </div>
   </div>
@@ -341,7 +366,7 @@
       render(); start();
     })();
 
-    // Dynamic currency (fallback heuristics, privacy-friendly)
+    // Dynamic currency (privacy-friendly heuristics)
     (async function () {
       const priceEl = document.getElementById('dynamic-price');
       const base = Number(priceEl?.dataset?.base || 5000);
@@ -378,7 +403,7 @@
       render(await detectCurrency());
     })();
 
-    // Availability scrolling line: underline the date/time; bold the slot; random 12:00–4:59pm; 2s delay then start moving; show once
+    // Availability line: underline date/time; bold slot; random 12–4:59pm
     (function(){
       const el = document.getElementById('availability-text');
       if(!el) return;
