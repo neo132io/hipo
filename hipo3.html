@@ -36,7 +36,7 @@
     /* Top scrolling notice (single instance, slower speed) */
     .marquee{ position:relative; overflow:hidden; height:1.75rem; display:block; }
     .marquee__inner{ position:absolute; left:0; top:0; display:inline-block; white-space:nowrap; will-change:transform; animation:scroll-left 26s linear infinite; }
-    @keyframes scroll-left{ from{ transform:translateX(100%);} to{ transform:translateX(-100%);} }
+    @keyframes scroll-left{ 0%{ transform:translateX(0);} 100%{ transform:translateX(-100%);} } to{ transform:translateX(-100%);} }
     @media (max-width:640px){ .marquee__inner{ animation-duration:32s; } }
 
     /* Carousel dots */
