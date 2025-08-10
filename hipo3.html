@@ -33,7 +33,7 @@
     /* Clamp paragraphs to avoid overflow in carousel */
     .clamp-5 { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
 
-    /* Top scrolling notice (single instance, with 1.5s delay) */
+    /* Top scrolling notice (single instance, with 2s delay) */
     .marquee{ position:relative; overflow:hidden; height:2rem; display:flex; align-items:center; }
     .marquee__inner{ position:absolute; left:0; top:0; display:inline-block; white-space:nowrap; will-change:transform; animation:scroll-left 22s linear infinite; animation-delay: 2s; font-size: 0.95rem; }
     @keyframes scroll-left{ 0%{ transform:translateX(0);} 100%{ transform:translateX(-100%);} }
@@ -378,7 +378,7 @@
       render(await detectCurrency());
     })();
 
-    // Availability scrolling line: underline the date/time; bold the slot; random 12:00–4:59pm; 1.5s delay then start moving; show once
+    // Availability scrolling line: underline the date/time; bold the slot; random 12:00–4:59pm; 2s delay then start moving; show once
     (function(){
       const el = document.getElementById('availability-text');
       if(!el) return;
