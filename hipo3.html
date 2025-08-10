@@ -34,10 +34,10 @@
     .clamp-5 { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
 
     /* Top scrolling notice (single instance, with 1.5s delay) */
-    .marquee{ position:relative; overflow:hidden; height:1.75rem; display:block; }
-    .marquee__inner{ position:absolute; left:0; top:0; display:inline-block; white-space:nowrap; will-change:transform; animation:scroll-left 26s linear infinite; animation-delay: 1.5s; }
+    .marquee{ position:relative; overflow:hidden; height:2rem; display:flex; align-items:center; }
+    .marquee__inner{ position:absolute; left:0; top:0; display:inline-block; white-space:nowrap; will-change:transform; animation:scroll-left 22s linear infinite; animation-delay: 2s; font-size: 0.95rem; }
     @keyframes scroll-left{ 0%{ transform:translateX(0);} 100%{ transform:translateX(-100%);} }
-    @media (max-width:640px){ .marquee__inner{ animation-duration:32s; } }
+    @media (max-width:640px){ .marquee__inner{ animation-duration:28s; } }
 
     /* Carousel dots */
     #testimonial-dots button{ width:10px; height:10px; border-radius:9999px; background:rgba(255,255,255,.4); display:inline-block; }
@@ -49,7 +49,7 @@
   <div class="bg-amber-50 text-amber-900 text-xs sm:text-sm">
     <div class="container mx-auto px-4 sm:px-6 py-2">
       <div class="marquee">
-        <span id="availability-text" class="marquee__inner" style="animation-delay:1.5s;"></span>
+        <span id="availability-text" class="marquee__inner" style="animation-delay:2s;"></span>
       </div>
     </div>
   </div>
