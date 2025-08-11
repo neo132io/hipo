@@ -1,0 +1,13 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Saas Fractiona CPO",
+    "description": "",
+    "home_page_url": "https://github.com/neo132io/hipo.git",
+    "feed_url": "https://github.com/neo132io/hipo.git/feed.json",
+    "user_comment": "",
+    "author": {
+        "name": "Sivan Kadosh"
+    },
+    "items": [
+    ]
+}
