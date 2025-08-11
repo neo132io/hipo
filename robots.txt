@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://github.com/neo132io/hipo.git/sitemap.xml
