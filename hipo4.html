@@ -60,7 +60,7 @@
         <div class="container mx-auto px-6 py-20 md:py-32 text-center">
             <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">Stop Fearing Taxes.<br class="hidden md:block"> <span class="accent-green">Start Knowing Your Numbers.</span></h1>
             <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">The first Financial OS designed exclusively for U.S. freelancers. We automate your quarterly taxes, find every deduction, and show you what's safe to spend. Finally.</p>
-            <button onclick="openModal()" class="btn-green text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg">
+            <button class="open-modal-button btn-green text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg">
                 Start Your Free Trial
             </button>
             <p class="text-sm text-gray-500 mt-4">No credit card required. 14-day free trial.</p>
@@ -136,7 +136,7 @@
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Get the financial clarity you deserve.</h2>
                 <p class="text-lg mb-8 max-w-2xl mx-auto">Stop the anxiety and take control of your freelance finances today. Your first 14 days are on us.</p>
-                <button onclick="openModal()" class="btn-green text-white font-bold py-4 px-10 rounded-lg text-xl shadow-lg">
+                <button class="open-modal-button btn-green text-white font-bold py-4 px-10 rounded-lg text-xl shadow-lg">
                     Start Your Free Trial
                 </button>
             </div>
@@ -146,4 +146,27 @@
     
     <!-- Signup Modal -->
     <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 modal-overlay opacity-0 pointer-events-none">
-        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-8 md:p-12 modal-content transform scale-9
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-8 md:p-12 modal-content transform scale-95">
+            <div id="formContainer">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Create Your Free Account</h2>
+                <p class="text-gray-600 mb-6">Start your 14-day free trial. No credit card required.</p>
+                <form id="leadForm">
+                    <div class="mb-4">
+                        <label for="Name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <input type="text" id="Name" name="Name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="mb-6">
+                        <label for="Email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="Email" name="Email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <button type="submit" id="submitButton" class="w-full btn-green text-white font-bold py-3 px-4 rounded-md">Get Started for Free</button>
+                </form>
+            </div>
+            <div id="confirmationContainer" class="hidden text-center">
+                <svg class="w-16 h-16 accent-green mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Welcome to Hipo!</h2>
+                <p class="text-gray-600">Your account is ready. Please check your email for instructions on how to get started.</p>
+                 <button onclick="closeModal()" class="mt-6 text-sm text-gray-500 underline">Close</button>
+            </div>
+             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www
