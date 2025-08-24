@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hipo | Financial Calm for U.S. Freelancers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background-color: #F8F9FA;
+        }
+        .dark-bg {
+            background-color: #0A2540;
+        }
+        .accent-green {
+            color: #10B981;
+        }
+        .btn-green {
+            background-color: #10B981;
+            transition: background-color 0.3s ease;
+        }
+        .btn-green:hover {
+            background-color: #059669;
+        }
+        .btn-green:disabled {
+            background-color: #6ee7b7;
+            cursor: not-allowed;
+        }
+        .faq-question.open .faq-answer {
+            max-height: 200px;
+            padding-top: 1rem;
+            opacity: 1;
+        }
+        .faq-question .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+        .faq-question.open svg.plus { display: none; }
+        .faq-question:not(.open) svg.minus { display: none; }
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+    <!-- Hero Section -->
+    <header class="gradient-bg">
+        <div class="container mx-auto px-6 py-20 md:py-32 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">Stop Fearing Taxes.<br class="hidden md:block"> <span class="accent-green">Start Knowing Your Numbers.</span></h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">The first Financial OS designed exclusively for U.S. freelancers. We automate your quarterly taxes, find every deduction, and show you what's safe to spend. Finally.</p>
+            <button onclick="openModal()" class="btn-green text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg">
+                Start Your Free Trial
+            </button>
+            <p class="text-sm text-gray-500 mt-4">No credit card required. 14-day free trial.</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Pain Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Sound Familiar?</h2>
+                <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">You became a freelancer for the freedom, but the financial admin feels like a prison of anxiety.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Pain Point 1 -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <svg class="w-10 h-10 accent-green mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <h3 class="text-lg font-bold mb-2">Quarterly Tax Anxiety</h3>
+                        <p class="text-gray-600 text-sm">That feeling of dread every three months, guessing how much to pay the IRS.</p>
+                    </div>
+                    <!-- Pain Point 2 -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <svg class="w-10 h-10 accent-green mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 12v.01M12 12v.01M12 16v.01M12 16v.01M12 20v-1m0-1v.01"></path></svg>
+                        <h3 class="text-lg font-bold mb-2">Fear of Missing Deductions</h3>
+                        <p class="text-gray-600 text-sm">The constant worry that you're "leaving money on the table" with your home office or vehicle.</p>
+                    </div>
+                    <!-- Pain Point 3 -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <svg class="w-10 h-10 accent-green mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <h3 class="text-lg font-bold mb-2">Tooling Frustration</h3>
+                        <p class="text-gray-600 text-sm">Stuck between QuickBooks being overkill and spreadsheets not being enough?</p>
+                    </div>
+                    <!-- Pain Point 4 -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <svg class="w-10 h-10 accent-green mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <h3 class="text-lg font-bold mb-2">IRS Fear</h3>
+                        <p class="text-gray-600 text-sm">The fear of making a simple mistake that could lead to a stressful audit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold">Introducing Hipo: Your Financial Command Center.</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Hipo isn't another accounting tool. It's a simple, powerful OS designed to give you one thing: financial clarity.</p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x450/0A2540/10B981?text=App+Mockup" alt="Hipo App Mockup" class="rounded-lg shadow-2xl">
+                    </div>
+                    <div class="md:w-1/2 space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 accent-green">Automated Tax Pockets</h3>
+                            <p class="text-gray-600">Connect your bank, and Hipo automatically sets aside the right amount for federal and state taxes from every payment. No more guessing.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 accent-green">Smart Deduction Finder</h3>
+                            <p class="text-gray-600">Our AI scans your expenses and proactively asks questions to help you find every possible deduction, from home office to business meals.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 accent-green">The 'Safe to Spend' Balance</h3>
+                            <p class="text-gray-600">Your bank balance is a lie. Hipo shows you the one number that matters: what's actually safe to spend after taxes and expenses are accounted for.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Final CTA Section -->
+        <section id="cta" class="dark-bg text-white py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get the financial clarity you deserve.</h2>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">Stop the anxiety and take control of your freelance finances today. Your first 14 days are on us.</p>
+                <button onclick="openModal()" class="btn-green text-white font-bold py-4 px-10 rounded-lg text-xl shadow-lg">
+                    Start Your Free Trial
+                </button>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Signup Modal -->
+    <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 modal-overlay opacity-0 pointer-events-none">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-8 md:p-12 modal-content transform scale-9
