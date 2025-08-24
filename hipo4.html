@@ -169,4 +169,94 @@
                  <button onclick="closeModal()" class="mt-6 text-sm text-gray-500 underline">Close</button>
             </div>
              <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+    </div>
+
+
+    <footer class="bg-gray-100 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-600">
+            <p>&copy; 2025 Hipo. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Modal Functionality ---
+        const modal = document.getElementById('signupModal');
+        const formContainer = document.getElementById('formContainer');
+        const confirmationContainer = document.getElementById('confirmationContainer');
+        const leadForm = document.getElementById('leadForm');
+        const submitButton = document.getElementById('submitButton');
+        const openModalButtons = document.querySelectorAll('.open-modal-button');
+
+        function openModal() {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('.modal-content').classList.remove('scale-95');
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('.modal-content').classList.add('scale-95');
+             // Reset form for next time
+            setTimeout(() => {
+                formContainer.style.display = 'block';
+                confirmationContainer.classList.add('hidden');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Get Started for Free';
+            }, 300);
+        }
+        
+        // Attach event listeners to all buttons that should open the modal
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', openModal);
+        });
+
+        // --- Form Submission to Google Sheets ---
+        leadForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+
+            // IMPORTANT: Replace this URL with the one you get from Google Apps Script
+            const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+            const formData = new FormData(leadForm);
+
+            fetch(scriptURL, { method: 'POST', body: formData})
+                .then(response => {
+                    console.log('Success!', response);
+                    formContainer.style.display = 'none';
+                    confirmationContainer.classList.remove('hidden');
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert('Oops! Something went wrong. Please try again.');
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Get Started for Free';
+                });
+        });
+
+        // --- Close Modal Logic ---
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // --- FAQ Functionality ---
+        // (This part was missing from the original selection, adding it back for completeness)
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                document.querySelectorAll('.faq-question.open').forEach(openItem => {
+                    if (openItem !== item) {
+                        openItem.classList.remove('open');
+                    }
+                });
+                item.classList.toggle('open');
+            });
+        });
+
+    </script>
+</body>
+</html>
