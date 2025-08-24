@@ -23,32 +23,55 @@
         }
         .btn-green {
             background-color: #10B981;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
         .btn-green:hover {
             background-color: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .modal-overlay {
-            transition: opacity 0.3s ease;
+        .feature-card {
+            transition: all 0.3s ease;
         }
-        .modal-content {
-            transition: transform 0.3s ease;
+        .feature-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
-        .feature-icon {
-            background-color: #E6F8F3;
-            border-radius: 50%;
-            padding: 1rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
+        
+        /* Sticky Header */
+        #sticky-header {
+            transition: all 0.4s ease-in-out;
+        }
+        #sticky-header.header-scrolled {
+            top: 0;
+            opacity: 1;
+        }
+
+        /* Scroll Animations */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
-    <header class="hero-bg">
-        <div class="container mx-auto px-6 py-20 md:py-32 text-center">
+    <header id="sticky-header" class="fixed top-[-100px] left-0 right-0 bg-white/80 backdrop-blur-sm shadow-md z-40 p-4 opacity-0">
+        <div class="container mx-auto flex justify-between items-center">
+             <h2 class="text-2xl font-bold text-gray-900">Hipo</h2>
+             <button class="open-modal-button btn-green text-white font-bold py-2 px-5 rounded-lg text-sm">
+                Start Free Trial
+            </button>
+        </div>
+    </header>
+
+    <section class="hero-bg">
+        <div class="container mx-auto px-6 pt-20 pb-16 md:pt-32 md:pb-24 text-center">
             <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">Stop Fearing Taxes.<br class="hidden md:block"> <span class="accent-green">Start Knowing Your Numbers.</span></h1>
             <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">The first Financial OS designed exclusively for U.S. freelancers. We automate your quarterly taxes, find every deduction, and show you what's safe to spend. Finally.</p>
             <button class="open-modal-button btn-green text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg">
@@ -56,87 +79,89 @@
             </button>
             <p class="text-sm text-gray-500 mt-4">No credit card required.</p>
         </div>
-    </header>
+    </section>
 
     <main>
         <section class="py-12 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                 <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">TRUSTED BY FREELANCERS FROM</p>
-                 <div class="flex justify-center items-center space-x-8 mt-4 opacity-60">
-                     <img src="https://placehold.co/120x40/gray/white?text=CompanyA" alt="Company A Logo" class="h-8">
-                     <img src="https://placehold.co/120x40/gray/white?text=StartupB" alt="Startup B Logo" class="h-8">
-                     <img src="https://placehold.co/120x40/gray/white?text=AgencyC" alt="Agency C Logo" class="h-8">
-                     <img src="https://placehold.co/120x40/gray/white?text=ProjectD" alt="Project D Logo" class="h-8 hidden sm:block">
+            <div class="container mx-auto px-6 text-center fade-in-section">
+                 <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">WORKS WITH THE PLATFORMS YOU ALREADY USE</p>
+                 <div class="flex justify-center items-center space-x-8 mt-4">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe Logo" class="h-8 opacity-60" title="Stripe">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal Logo" class="h-8 opacity-60" title="PayPal">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Upwork_Logo.svg" alt="Upwork Logo" class="h-10 opacity-60" title="Upwork">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Fiverr_Logo_2020.svg" alt="Fiverr Logo" class="h-10 opacity-60" title="Fiverr">
                  </div>
             </div>
         </section>
 
         <section class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6 text-center">
+            <div class="container mx-auto px-6 text-center fade-in-section">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Your Financial Peace of Mind Starts Here.</h2>
                 <p class="text-lg text-gray-600 mb-16 max-w-3xl mx-auto">You were born to be free, not an accountant. Hipo puts you back in control.</p>
-                <div class="grid md:grid-cols-3 gap-12">
-                    <div class="bg-white p-8 rounded-lg shadow-sm text-center">
-                        <div class="feature-icon">
-                           <svg class="w-8 h-8 accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 8l3 5m0 0l3-5m-3 5v4m0 0H9m3 0h3m-9 5H3a2 2 0 01-2-2V6a2 2 0 012-2h18a2 2 0 012 2v10a2 2 0 01-2 2h-3m-1-4l-3 3-3-3"></path></svg>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="feature-card bg-white p-8 rounded-lg shadow-sm text-center">
+                        <div class="bg-green-100 rounded-xl inline-block p-4 mb-4">
+                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 8l3 5m0 0l3-5m-3 5v4m0 0H9m3 0h3m-9 5H3a2 2 0 01-2-2V6a2 2 0 012-2h18a2 2 0 012 2v10a2 2 0 01-2 2h-3m-1-4l-3 3-3-3"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Automated Tax Pockets</h3>
                         <p class="text-gray-600">Connect your bank, and Hipo automatically sets aside the right amount for federal and state taxes from every payment. No guessing.</p>
                     </div>
-                    <div class="bg-white p-8 rounded-lg shadow-sm text-center">
-                         <div class="feature-icon">
-                            <svg class="w-8 h-8 accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <div class="feature-card bg-white p-8 rounded-lg shadow-sm text-center">
+                         <div class="bg-green-100 rounded-xl inline-block p-4 mb-4">
+                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.835 2.126a.5.5 0 01.33.625l-2.36 7.08a.5.5 0 01-.84.22l-1.32-2.345a.5.5 0 01.22-.84L7.2 5.006a.5.5 0 01.635-.08z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Smart Deduction Finder</h3>
-                        <p class="text-gray-600">Our AI scans your expenses and proactively asks questions to help you find every possible deduction, from home office to business meals.</p>
+                        <p class="text-gray-600">Our AI scans your expenses and proactively finds every possible deduction, from home office to business meals.</p>
                     </div>
-                    <div class="bg-white p-8 rounded-lg shadow-sm text-center">
-                         <div class="feature-icon">
-                             <svg class="w-8 h-8 accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                    <div class="feature-card bg-white p-8 rounded-lg shadow-sm text-center">
+                         <div class="bg-green-100 rounded-xl inline-block p-4 mb-4">
+                             <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-2">The 'Safe to Spend' Balance</h3>
-                        <p class="text-gray-600">Your bank balance is a lie. Hipo shows you the one number that matters: what's actually safe to spend after taxes and expenses.</p>
+                        <p class="text-gray-600">Your bank balance is a lie. Hipo shows you the one number that matters: what's actually safe to spend after taxes.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="py-20 bg-white">
-            <div class="container mx-auto px-6">
+            <div class="container mx-auto px-6 fade-in-section">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold">Easy to Start. Impossible to Go Back.</h2>
                     <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">In 3 simple steps, you'll be on your way to complete financial control.</p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-10 text-center">
+                <div class="grid md:grid-cols-3 gap-10 text-center items-start">
                     <div>
-                        <img src="https://placehold.co/400x300/E6F8F3/0A2540?text=1.+Connect+Bank" alt="Connect your bank account" class="rounded-lg shadow-md mb-4">
+                        <img src="https://storage.googleapis.com/gemini-generative-ai-media/v1/a03b5f368f5d023253a6c0128c7c9cc1/0_0.jpeg" alt="Illustration of a phone connecting to a bank" class="rounded-lg shadow-md mb-6 w-full">
                         <h3 class="text-xl font-bold mb-2">1. Connect Your Bank</h3>
-                        <p class="text-gray-600">Securely link your bank account in seconds.</p>
+                        <p class="text-gray-600">Securely link your bank account in seconds. Hipo integrates with over 11,000 U.S. financial institutions.</p>
                     </div>
                     <div>
-                        <img src="https://placehold.co/400x300/E6F8F3/0A2540?text=2.+Hipo+Works" alt="Hipo works its magic" class="rounded-lg shadow-md mb-4">
+                        <img src="https://storage.googleapis.com/gemini-generative-ai-media/v1/9a44976451e7a5c7f8a846c24388ed79/0_1.jpeg" alt="Illustration of an app dashboard organizing finances" class="rounded-lg shadow-md mb-6 w-full">
                         <h3 class="text-xl font-bold mb-2">2. Let Hipo Work</h3>
-                        <p class="text-gray-600">Hipo automatically analyzes income and expenses, categorizing everything.</p>
+                        <p class="text-gray-600">Hipo automatically analyzes your income and expenses, categorizing everything and finding tax write-offs in real-time.</p>
                     </div>
                     <div>
-                        <img src="https://placehold.co/400x300/E6F8F3/0A2540?text=3.+Get+Clarity" alt="Get financial clarity" class="rounded-lg shadow-md mb-4">
+                        <img src="https://storage.googleapis.com/gemini-generative-ai-media/v1/93d254f5fc515fdcc44f2d7253573c7e/0_2.jpeg" alt="Illustration of a person feeling financially calm" class="rounded-lg shadow-md mb-6 w-full">
                         <h3 class="text-xl font-bold mb-2">3. Get Clarity</h3>
-                        <p class="text-gray-600">See exactly how much is set aside for taxes and what's safe to spend.</p>
+                        <p class="text-gray-600">Instantly see what's set aside for taxes and what's truly yours. Make confident financial decisions, stress-free.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-20 dark-bg text-white">
-            <div class="container mx-auto px-6 text-center">
-                <img src="https://i.pravatar.cc/100?u=a042581f4e29026704d" alt="Photo of Sarah L., a freelance designer" class="w-24 h-24 rounded-full mx-auto mb-6 border-4 border-gray-600">
-                <p class="text-xl md:text-2xl font-light max-w-3xl mx-auto mb-4">"Hipo changed my life. For the first time since becoming a freelancer, I'm not anxious about quarterly taxes. I just open the app and know everything is under control."</p>
-                <cite class="font-semibold not-italic">Sarah L., Product Designer</cite>
+        <section class="py-20 dark-bg text-white relative overflow-hidden">
+             <svg class="absolute top-0 left-0 h-64 w-64 text-gray-700/30 opacity-25 -translate-x-12 -translate-y-12" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM2 10a6 6 0 1112 0 6 6 0 01-12 0zm6-4a1 1 0 00-1 1v1a1 1 0 102 0V7a1 1 0 00-1-1zM6 11a1 1 0 011-1h2a1 1 0 110 2H7a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+             <svg class="absolute bottom-0 right-0 h-64 w-64 text-gray-700/30 opacity-25 translate-x-12 translate-y-12" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM2 10a6 6 0 1112 0 6 6 0 01-12 0zm6-4a1 1 0 00-1 1v1a1 1 0 102 0V7a1 1 0 00-1-1zM6 11a1 1 0 011-1h2a1 1 0 110 2H7a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            <div class="container mx-auto px-6 text-center fade-in-section relative z-10">
+                <img src="https://storage.googleapis.com/gemini-generative-ai-media/v1/40960570a2fe7e42d7667d465361001e/0_3.jpeg" alt="Photo of Emily Carter, a freelance UX designer" class="w-24 h-24 rounded-full mx-auto mb-6 border-4 border-gray-600">
+                <p class="text-xl md:text-2xl font-light max-w-3xl mx-auto mb-4">"Hipo saves me about 5 hours every quarter. More importantly, it found **$420 in deductions** I missed last year alone. That feeling of control is priceless."</p>
+                <cite class="font-semibold not-italic">Emily C., UX Designer</cite>
             </div>
         </section>
         
         <section id="cta" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6 text-center">
+            <div class="container mx-auto px-6 text-center fade-in-section">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Get the financial clarity you deserve.</h2>
                 <p class="text-lg mb-8 max-w-2xl mx-auto">Stop the anxiety and take control of your freelance finances today. Your first 14 days are on us.</p>
                 <button class="open-modal-button btn-green text-white font-bold py-4 px-10 rounded-lg text-xl shadow-lg">
@@ -147,9 +172,9 @@
 
     </main>
     
-    <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 modal-overlay opacity-0 pointer-events-none">
-        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-8 md:p-12 modal-content transform scale-95 relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+    <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-8 md:p-12 transform scale-95 transition-transform duration-300">
+             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <div id="formContainer">
@@ -168,14 +193,13 @@
                 </form>
             </div>
             <div id="confirmationContainer" class="hidden text-center">
-                <svg class="w-16 h-16 accent-green mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                 <svg class="w-16 h-16 accent-green mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 <h2 class="text-2xl font-bold text-gray-900 mb-2">Welcome to Hipo!</h2>
                 <p class="text-gray-600">Your account is ready. Please check your email for instructions on how to get started.</p>
                  <button onclick="closeModal()" class="mt-6 text-sm text-gray-500 underline">Close</button>
             </div>
         </div>
     </div>
-
     <footer class="bg-gray-100 py-8">
         <div class="container mx-auto px-6 text-center text-gray-600">
             <p>&copy; 2025 Hipo. All Rights Reserved.</p>
@@ -184,6 +208,7 @@
 
     <script>
         const modal = document.getElementById('signupModal');
+        const modalContent = modal.querySelector('.transform');
         const formContainer = document.getElementById('formContainer');
         const confirmationContainer = document.getElementById('confirmationContainer');
         const leadForm = document.getElementById('leadForm');
@@ -192,13 +217,14 @@
 
         function openModal() {
             modal.classList.remove('opacity-0', 'pointer-events-none');
-            modal.querySelector('.modal-content').classList.remove('scale-95');
+            modalContent.classList.remove('scale-95');
         }
 
         function closeModal() {
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modal.querySelector('.modal-content').classList.add('scale-95');
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
             setTimeout(() => {
+                modal.classList.add('pointer-events-none');
                 formContainer.style.display = 'block';
                 confirmationContainer.classList.add('hidden');
                 submitButton.disabled = false;
@@ -206,20 +232,13 @@
             }, 300);
         }
         
-        openModalButtons.forEach(button => {
-            button.addEventListener('click', openModal);
-        });
-
+        openModalButtons.forEach(button => button.addEventListener('click', openModal));
         leadForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
             submitButton.disabled = true;
             submitButton.textContent = 'Submitting...';
-
-            // IMPORTANT: Replace this URL with the one you get from Google Apps Script
             const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; 
             const formData = new FormData(leadForm);
-
             fetch(scriptURL, { method: 'POST', body: formData})
                 .then(response => {
                     console.log('Success!', response);
@@ -233,10 +252,36 @@
                     submitButton.textContent = 'Get Started for Free';
                 });
         });
+        modal.addEventListener('click', e => e.target === modal && closeModal());
 
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
+        // Sticky Header & Scroll Animations
+        const stickyHeader = document.getElementById('sticky-header');
+        const fadeInSections = document.querySelectorAll('.fade-in-section');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        fadeInSections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 150) {
+                stickyHeader.classList.add('header-scrolled');
+            } else {
+                stickyHeader.classList.remove('header-scrolled');
             }
         });
     </script>
