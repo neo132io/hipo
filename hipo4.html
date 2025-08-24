@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hipo | Financial Calm for U.S. Freelancers</title>
+    <title>Hipo | שקט נפשי פיננסי לפרילנסרים בארה"ב</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Rubik', sans-serif;
         }
-        .gradient-bg {
-            background-color: #F8F9FA;
+        .hero-bg {
+             background-color: #f8f9fa;
         }
         .dark-bg {
             background-color: #0A2540;
@@ -28,161 +28,161 @@
         .btn-green:hover {
             background-color: #059669;
         }
-        .btn-green:disabled {
-            background-color: #6ee7b7;
-            cursor: not-allowed;
-        }
-        .faq-question.open .faq-answer {
-            max-height: 200px;
-            padding-top: 1rem;
-            opacity: 1;
-        }
-        .faq-question .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transition: all 0.5s ease-in-out;
-        }
-        .faq-question.open svg.plus { display: none; }
-        .faq-question:not(.open) svg.minus { display: none; }
         .modal-overlay {
             transition: opacity 0.3s ease;
         }
         .modal-content {
             transition: transform 0.3s ease;
         }
+        .feature-icon {
+            background-color: #E6F8F3;
+            border-radius: 50%;
+            padding: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
-    <!-- Hero Section -->
-    <header class="gradient-bg">
+    <header class="hero-bg">
         <div class="container mx-auto px-6 py-20 md:py-32 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">Stop Fearing Taxes.<br class="hidden md:block"> <span class="accent-green">Start Knowing Your Numbers.</span></h1>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">The first Financial OS designed exclusively for U.S. freelancers. We automate your quarterly taxes, find every deduction, and show you what's safe to spend. Finally.</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">תפסיקו לפחד ממיסים.<br class="hidden md:block"> <span class="accent-green">תתחילו להכיר את המספרים שלכם.</span></h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">מערכת ההפעלה הפיננסית הראשונה שעוצבה בלעדית לפרילנסרים בארה"ב. אנחנו ממכנים את תשלומי המס הרבעוניים, מוצאים כל הוצאה מוכרת, ומראים לכם כמה כסף פנוי באמת יש לכם. סוף כל סוף.</p>
             <button class="open-modal-button btn-green text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg">
-                Start Your Free Trial
+                התחילו 14 ימי ניסיון בחינם
             </button>
-            <p class="text-sm text-gray-500 mt-4">No credit card required. 14-day free trial.</p>
+            <p class="text-sm text-gray-500 mt-4">ללא צורך בכרטיס אשראי.</p>
         </div>
     </header>
 
     <main>
-        <!-- Pain Section -->
-        <section class="py-20 bg-white">
+        <section class="py-12 bg-white">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Sound Familiar?</h2>
-                <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">You became a freelancer for the freedom, but the financial admin feels like a prison of anxiety.</p>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Pain Point 1 -->
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <svg class="w-10 h-10 accent-green mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        <h3 class="text-lg font-bold mb-2">Quarterly Tax Anxiety</h3>
-                        <p class="text-gray-600 text-sm">That feeling of dread every three months, guessing how much to pay the IRS.</p>
+                 <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">בשימוש על ידי פרילנסרים מ-</p>
+                 <div class="flex justify-center items-center space-x-8 rtl:space-x-reverse mt-4 opacity-60">
+                     <img src="https://placehold.co/120x40/gray/white?text=CompanyA" alt="Company A Logo" class="h-8">
+                     <img src="https://placehold.co/120x40/gray/white?text=StartupB" alt="Startup B Logo" class="h-8">
+                     <img src="https://placehold.co/120x40/gray/white?text=AgencyC" alt="Agency C Logo" class="h-8">
+                     <img src="https://placehold.co/120x40/gray/white?text=ProjectD" alt="Project D Logo" class="h-8 hidden sm:block">
+                 </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">השקט הנפשי הפיננסי שלכם מתחיל כאן.</h2>
+                <p class="text-lg text-gray-600 mb-16 max-w-3xl mx-auto">נולדתם להיות חופשיים, לא להיות מנהלי חשבונות. היפו מחזירה לכם את השליטה.</p>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                        <div class="feature-icon">
+                           <svg class="w-8 h-8 accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 8l3 5m0 0l3-5m-3 5v4m0 0H9m3 0h3m-9 5H3a2 2 0 01-2-2V6a2 2 0 012-2h18a2 2 0 012 2v10a2 2 0 01-2 2h-3m-1-4l-3 3-3-3"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">חיסכון אוטומטי למיסים</h3>
+                        <p class="text-gray-600">חברו את חשבון הבנק, והיפו תשים בצד את הסכום המדויק למיסים פדרליים ומדינתיים מכל הכנסה. בלי ניחושים, בלי הפתעות.</p>
                     </div>
-                    <!-- Pain Point 2 -->
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <svg class="w-10 h-10 accent-green mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 12v.01M12 12v.01M12 16v.01M12 16v.01M12 20v-1m0-1v.01"></path></svg>
-                        <h3 class="text-lg font-bold mb-2">Fear of Missing Deductions</h3>
-                        <p class="text-gray-600 text-sm">The constant worry that you're "leaving money on the table" with your home office or vehicle.</p>
+                    <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                         <div class="feature-icon">
+                            <svg class="w-8 h-8 accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">איתור הוצאות מוכרות חכם</h3>
+                        <p class="text-gray-600">ה-AI שלנו סורק את ההוצאות שלכם ושואל שאלות מנחות כדי שתמקסמו כל החזר מס אפשרי, מהמשרד הביתי ועד לארוחות עסקיות.</p>
                     </div>
-                    <!-- Pain Point 3 -->
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <svg class="w-10 h-10 accent-green mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        <h3 class="text-lg font-bold mb-2">Tooling Frustration</h3>
-                        <p class="text-gray-600 text-sm">Stuck between QuickBooks being overkill and spreadsheets not being enough?</p>
-                    </div>
-                    <!-- Pain Point 4 -->
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <svg class="w-10 h-10 accent-green mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                        <h3 class="text-lg font-bold mb-2">IRS Fear</h3>
-                        <p class="text-gray-600 text-sm">The fear of making a simple mistake that could lead to a stressful audit.</p>
+                    <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                         <div class="feature-icon">
+                             <svg class="w-8 h-8 accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">"כמה כסף באמת פנוי?"</h3>
+                        <p class="text-gray-600">היתרה בבנק משקרת. היפו מראה לכם את המספר היחיד שחשוב: כמה כסף נשאר לכם אחרי שהמיסים וההוצאות כבר חושבו.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Solution Section -->
-        <section class="py-20 bg-gray-50">
+        <section class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold">Introducing Hipo: Your Financial Command Center.</h2>
-                    <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Hipo isn't another accounting tool. It's a simple, powerful OS designed to give you one thing: financial clarity.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold">קל להתחיל. בלתי אפשרי לחזור אחורה.</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">ב-3 צעדים פשוטים, תהיו בדרך לשליטה פיננסית מלאה.</p>
                 </div>
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/2">
-                        <img src="https://placehold.co/600x450/0A2540/10B981?text=App+Mockup" alt="Hipo App Mockup" class="rounded-lg shadow-2xl">
+                <div class="grid md:grid-cols-3 gap-10 text-center">
+                    <div>
+                        <img src="https://placehold.co/400x300/E6F8F3/0A2540?text=1.+חברו+את+הבנק" alt="Connect your bank account" class="rounded-lg shadow-md mb-4">
+                        <h3 class="text-xl font-bold mb-2">1. חברו את החשבון</h3>
+                        <p class="text-gray-600">קשרו את חשבון הבנק שלכם בצורה מאובטחת תוך שניות.</p>
                     </div>
-                    <div class="md:w-1/2 space-y-8">
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 accent-green">Automated Tax Pockets</h3>
-                            <p class="text-gray-600">Connect your bank, and Hipo automatically sets aside the right amount for federal and state taxes from every payment. No more guessing.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 accent-green">Smart Deduction Finder</h3>
-                            <p class="text-gray-600">Our AI scans your expenses and proactively asks questions to help you find every possible deduction, from home office to business meals.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 accent-green">The 'Safe to Spend' Balance</h3>
-                            <p class="text-gray-600">Your bank balance is a lie. Hipo shows you the one number that matters: what's actually safe to spend after taxes and expenses are accounted for.</p>
-                        </div>
+                    <div>
+                        <img src="https://placehold.co/400x300/E6F8F3/0A2540?text=2.+היפו+עובדת" alt="Hipo works its magic" class="rounded-lg shadow-md mb-4">
+                        <h3 class="text-xl font-bold mb-2">2. תנו לקסם לקרות</h3>
+                        <p class="text-gray-600">היפו מנתחת אוטומטית הכנסות והוצאות ומסווגת הכל.</p>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/400x300/E6F8F3/0A2540?text=3.+קבלו+בהירות" alt="Get financial clarity" class="rounded-lg shadow-md mb-4">
+                        <h3 class="text-xl font-bold mb-2">3. קבלו בהירות</h3>
+                        <p class="text-gray-600">ראו בדיוק כמה כסף בצד למיסים וכמה באמת פנוי לכם.</p>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <!-- Final CTA Section -->
-        <section id="cta" class="dark-bg text-white py-20">
+
+        <section class="py-20 dark-bg text-white">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get the financial clarity you deserve.</h2>
-                <p class="text-lg mb-8 max-w-2xl mx-auto">Stop the anxiety and take control of your freelance finances today. Your first 14 days are on us.</p>
+                <img src="https://i.pravatar.cc/100?u=a042581f4e29026704d" alt="Photo of Sarah L., a freelance designer" class="w-24 h-24 rounded-full mx-auto mb-6 border-4 border-gray-600">
+                <p class="text-xl md:text-2xl font-light max-w-3xl mx-auto mb-4">"היפו שינה לי את החיים. בפעם הראשונה מאז שהפכתי לפרילנסרית, אני לא חרדה לקראת תשלום המיסים הרבעוני. אני פשוט פותחת את האפליקציה ויודעת שהכל תחת שליטה."</p>
+                <cite class="font-semibold not-italic">שרה ל., מעצבת מוצר</cite>
+            </div>
+        </section>
+        
+        <section id="cta" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">תנו לעצמכם את הבהירות הפיננסית שמגיעה לכם.</h2>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">תפסיקו את החרדה וקחו שליטה על הכספים שלכם עוד היום. 14 הימים הראשונים - עלינו.</p>
                 <button class="open-modal-button btn-green text-white font-bold py-4 px-10 rounded-lg text-xl shadow-lg">
-                    Start Your Free Trial
+                    התחילו את תקופת הניסיון בחינם
                 </button>
             </div>
         </section>
 
     </main>
     
-    <!-- Signup Modal -->
     <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 modal-overlay opacity-0 pointer-events-none">
-        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-8 md:p-12 modal-content transform scale-95">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-8 md:p-12 modal-content transform scale-95 relative">
+            <button onclick="closeModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
             <div id="formContainer">
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">Create Your Free Account</h2>
-                <p class="text-gray-600 mb-6">Start your 14-day free trial. No credit card required.</p>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">צרו חשבון חינמי</h2>
+                <p class="text-gray-600 mb-6">התחילו 14 ימי ניסיון, ללא צורך בכרטיס אשראי.</p>
                 <form id="leadForm">
                     <div class="mb-4">
-                        <label for="Name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <label for="Name" class="block text-sm font-medium text-gray-700 mb-1 text-right">שם</label>
                         <input type="text" id="Name" name="Name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
                     </div>
                     <div class="mb-6">
-                        <label for="Email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <label for="Email" class="block text-sm font-medium text-gray-700 mb-1 text-right">כתובת אימייל</label>
                         <input type="email" id="Email" name="Email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
                     </div>
-                    <button type="submit" id="submitButton" class="w-full btn-green text-white font-bold py-3 px-4 rounded-md">Get Started for Free</button>
+                    <button type="submit" id="submitButton" class="w-full btn-green text-white font-bold py-3 px-4 rounded-md">מתחילים בחינם!</button>
                 </form>
             </div>
             <div id="confirmationContainer" class="hidden text-center">
                 <svg class="w-16 h-16 accent-green mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">Welcome to Hipo!</h2>
-                <p class="text-gray-600">Your account is ready. Please check your email for instructions on how to get started.</p>
-                 <button onclick="closeModal()" class="mt-6 text-sm text-gray-500 underline">Close</button>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">ברוכים הבאים ל-Hipo!</h2>
+                <p class="text-gray-600">החשבון שלכם מוכן. בדקו את האימייל לקבלת הוראות התחברות.</p>
+                 <button onclick="closeModal()" class="mt-6 text-sm text-gray-500 underline">סגירה</button>
             </div>
-             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
         </div>
     </div>
 
-
     <footer class="bg-gray-100 py-8">
         <div class="container mx-auto px-6 text-center text-gray-600">
-            <p>&copy; 2025 Hipo. All Rights Reserved.</p>
+            <p>&copy; 2025 Hipo. כל הזכויות שמורות.</p>
         </div>
     </footer>
 
     <script>
-        // --- Modal Functionality ---
         const modal = document.getElementById('signupModal');
         const formContainer = document.getElementById('formContainer');
         const confirmationContainer = document.getElementById('confirmationContainer');
@@ -198,29 +198,25 @@
         function closeModal() {
             modal.classList.add('opacity-0', 'pointer-events-none');
             modal.querySelector('.modal-content').classList.add('scale-95');
-             // Reset form for next time
             setTimeout(() => {
                 formContainer.style.display = 'block';
                 confirmationContainer.classList.add('hidden');
                 submitButton.disabled = false;
-                submitButton.textContent = 'Get Started for Free';
+                submitButton.textContent = 'מתחילים בחינם!';
             }, 300);
         }
         
-        // Attach event listeners to all buttons that should open the modal
         openModalButtons.forEach(button => {
             button.addEventListener('click', openModal);
         });
 
-        // --- Form Submission to Google Sheets ---
         leadForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             submitButton.disabled = true;
-            submitButton.textContent = 'Submitting...';
+            submitButton.textContent = 'שולח...';
 
-            // IMPORTANT: Replace this URL with the one you get from Google Apps Script
-            const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+            const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; // חשוב: יש להחליף בכתובת שקיבלתם מגוגל
             const formData = new FormData(leadForm);
 
             fetch(scriptURL, { method: 'POST', body: formData})
@@ -231,32 +227,17 @@
                 })
                 .catch(error => {
                     console.error('Error!', error.message);
-                    alert('Oops! Something went wrong. Please try again.');
+                    alert('אופס! משהו השתבש. אנא נסו שוב.');
                     submitButton.disabled = false;
-                    submitButton.textContent = 'Get Started for Free';
+                    submitButton.textContent = 'מתחילים בחינם!';
                 });
         });
 
-        // --- Close Modal Logic ---
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 closeModal();
             }
         });
-        
-        // --- FAQ Functionality ---
-        // (This part was missing from the original selection, adding it back for completeness)
-        document.querySelectorAll('.faq-question').forEach(item => {
-            item.addEventListener('click', event => {
-                document.querySelectorAll('.faq-question.open').forEach(openItem => {
-                    if (openItem !== item) {
-                        openItem.classList.remove('open');
-                    }
-                });
-                item.classList.toggle('open');
-            });
-        });
-
     </script>
 </body>
 </html>
