@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Clarity</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        /* Style for disabled select wrapper */
+        .select-wrapper.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div id="app" class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- Header Section -->
+        <header class="flex justify-between items-center mb-8 fade-in">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+                <p class="text-gray-500">Welcome back, Alex!</p>
+            </div>
+            <!-- BUG FIX: Replaced space-x with gap for more robust spacing -->
+            <div class="flex items-center gap-6">
+                <button class="p-2 rounded-full hover:bg-white transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+                </button>
+                <img class="w-12 h-12 rounded-full border-2 border-emerald-500" src="https://placehold.co/100x100/E2E8F0/4A5568?text=A" alt="User Profile">
+            </div>
+        </header>
+
+        <main class="space-y-8">
+
+            <!-- Top Section: Financial Overview -->
+            <section id="overview-section" class="fade-in">
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Safe to Spend Card -->
+                    <div class="md:col-span-2 bg-gradient-to-br from-emerald-500 to-green-600 text-white p-8 rounded-2xl shadow-lg">
+                        <p class="text-lg font-semibold opacity-80">Safe to Spend</p>
+                        <p id="safe-to-spend" class="text-5xl lg:text-6xl font-bold mt-2">$7,500.00</p>
+                        <div class="mt-6 pt-6 border-t border-white/20 flex justify-between items-center text-sm">
+                            <div>
+                                <p class="opacity-70">Total in Account</p>
+                                <p id="total-balance" class="font-semibold text-lg">$10,000.00</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="opacity-70">Set aside for taxes (Virtual Pocket)</p>
+                                <p id="tax-pocket" class="font-semibold text-lg">$2,500.00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quarterly Tax Card -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm">
+                        <h3 class="font-bold text-lg text-gray-800">Next Quarterly Payment</h3>
+                        <p class="text-gray-500 text-sm">For Jun-Aug 2025 period</p>
+                        <p id="quarterly-tax-due" class="text-3xl font-bold text-emerald-600 my-3">$1,850.00</p>
+                        <div class="flex justify-between items-center">
+                            <p class="text-gray-600"><strong>Due Date:</strong> Sep 15, 2025</p>
+                            <a href="#" class="text-emerald-600 font-bold hover:underline">Pay Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Snapshot Card -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm">
+                        <h3 class="font-bold text-lg text-gray-800">Monthly Snapshot (August)</h3>
+                        <div class="mt-4 space-y-3">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <p class="font-semibold text-green-600">Income</p>
+                                    <p id="monthly-income" class="font-bold">$6,200</p>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-green-500 h-2.5 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <p class="font-semibold text-red-600">Business Expenses</p>
+                                    <p id="monthly-expenses" class="font-bold">$1,450</p>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-red-500 h-2.5 rounded-full" style="width: 23%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Section: Transactions Feed -->
+            <section id="transactions-section" class="fade-in" style="animation-delay: 200ms;">
+                <div class="bg-white p-6 rounded-2xl shadow-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold text-lg text-gray-800">Transactions to Categorize</h3>
+                        <span id="transaction-count" class="bg-emerald-100 text-emerald-800 text-sm font-bold px-3 py-1 rounded-full">6</span>
+                    </div>
+                    <div id="transactions-feed" class="space-y-3">
+                        <!-- Transactions will be dynamically inserted here -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mock Data ---
+            const financialData = {
+                totalBalance: 10000.00,
+                taxPocket: 2500.00,
+                quarterlyTaxDue: 1850.00,
+                monthlyIncome: 6200.00,
+                monthlyExpenses: 1450.00,
+            };
+
+            const transactions = [
+                { id: 1, merchant: "Adobe Creative Cloud", date: "Sep 2", amount: 54.99, type: 'expense', suggestion: 'Software & Subscriptions' },
+                { id: 2, merchant: "Stripe Payout", date: "Sep 1", amount: 1200.00, type: 'income' },
+                { id: 3, merchant: "Amazon Web Services", date: "Sep 1", amount: 25.50, type: 'expense', suggestion: 'Software & Subscriptions' },
+                { id: 4, merchant: "Starbucks", date: "Aug 31", amount: 6.75, type: 'expense', suggestion: 'Meals' },
+                { id: 5, merchant: "Upwork Payment", date: "Aug 30", amount: 850.00, type: 'income' },
+                { id: 6, merchant: "WeWork", date: "Aug 30", amount: 250.00, type: 'expense', suggestion: 'Office Expenses' },
+            ];
+
+            const expenseCategories = [
+                'Advertising', 'Car & Truck Expenses', 'Office Expenses', 'Software & Subscriptions', 'Supplies', 'Travel', 'Meals', 'Utilities', 'Other'
+            ];
+
+            // --- Main Functions ---
+            function formatCurrency(amount) {
+                if (typeof amount !== 'number') return '$0.00';
+                return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
+            }
+
+            function updateFinancialOverview() {
+                const safeToSpend = financialData.totalBalance - financialData.taxPocket;
+                document.getElementById('safe-to-spend').textContent = formatCurrency(safeToSpend);
+                document.getElementById('total-balance').textContent = formatCurrency(financialData.totalBalance);
+                document.getElementById('tax-pocket').textContent = formatCurrency(financialData.taxPocket);
+                document.getElementById('quarterly-tax-due').textContent = formatCurrency(financialData.quarterlyTaxDue);
+                document.getElementById('monthly-income').textContent = formatCurrency(financialData.monthlyIncome);
+                document.getElementById('monthly-expenses').textContent = formatCurrency(financialData.monthlyExpenses);
+                const expenseRatio = (financialData.monthlyExpenses / financialData.monthlyIncome) * 100;
+                const expenseBar = document.querySelector('.bg-red-500');
+                if (expenseBar) expenseBar.style.width = `${expenseRatio}%`;
+            }
+
+            function renderTransactions() {
+                const feed = document.getElementById('transactions-feed');
+                feed.innerHTML = '';
+                const expenseTransactions = transactions.filter(tx => tx.type === 'expense');
+                
+                document.getElementById('transaction-count').textContent = expenseTransactions.length;
+
+                expenseTransactions.forEach(tx => {
+                    const categoryOptions = expenseCategories.map(cat => 
+                        `<option value="${cat}" ${tx.suggestion === cat ? 'selected' : ''}>${cat}</option>`
+                    ).join('');
+
+                    const txElement = document.createElement('div');
+                    txElement.className = 'transaction-card p-4 rounded-xl bg-gray-50 border border-gray-200/80';
+                    txElement.dataset.id = tx.id;
+                    
+                    txElement.innerHTML = `
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <p class="font-semibold text-gray-800">${tx.merchant}</p>
+                                <p class="text-sm text-gray-500">${tx.date}</p>
+                            </div>
+                            <p class="font-bold text-lg text-gray-900">-${formatCurrency(tx.amount)}</p>
+                        </div>
+                        <div class="categorization-controls grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
+                            
+                            <!-- Custom Dropdown for Type -->
+                            <div class="relative sm:col-span-1">
+                                <select class="type-select w-full appearance-none rounded-md border-gray-300 bg-white py-2 pl-3 pr-8 text-sm font-medium focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition">
+                                    <option value="">Select Type...</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Personal">Personal</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Custom Dropdown for Category -->
+                            <div class="relative sm:col-span-1 select-wrapper disabled">
+                                <select class="category-select w-full appearance-none rounded-md border-gray-300 bg-white py-2 pl-3 pr-8 text-sm font-medium focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition" disabled>
+                                    <option value="">Select Category...</option>
+                                    ${categoryOptions}
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>
+                                </div>
+                            </div>
+
+                            <button data-action="confirm" class="sm:col-span-1 w-full bg-emerald-600 text-white px-4 py-2 text-sm font-semibold rounded-md hover:bg-emerald-700 transition-colors flex items-center justify-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022z"/></svg>
+                                <span>Confirm</span>
+                            </button>
+                        </div>
+                    `;
+                    feed.appendChild(txElement);
+                });
+            }
+            
+            function handleInteraction(event) {
+                const target = event.target;
+                const card = target.closest('.transaction-card');
+                if (!card) return;
+
+                const transactionId = card.dataset.id;
+                const typeSelect = card.querySelector('.type-select');
+                const categorySelect = card.querySelector('.category-select');
+                const categoryWrapper = card.querySelector('.select-wrapper');
+
+                if (target === typeSelect) {
+                    if (typeSelect.value === 'Business') {
+                        categorySelect.disabled = false;
+                        categoryWrapper.classList.remove('disabled');
+                    } else {
+                        categorySelect.disabled = true;
+                        categorySelect.value = '';
+                        categoryWrapper.classList.add('disabled');
+                    }
+                }
+
+                if (target.dataset.action === 'confirm' || target.closest('button')?.dataset.action === 'confirm') {
+                    const type = typeSelect.value;
+                    const category = categorySelect.value;
+
+                    if (!type) {
+                        alert('Please select a type (Business or Personal).');
+                        return;
+                    }
+                    if (type === 'Business' && !category) {
+                        alert('Please select a business category.');
+                        return;
+                    }
+
+                    console.log(`Transaction ID: ${transactionId} confirmed as ${type}${type === 'Business' ? ', category: ' + category : ''}`);
+                    fadeAndRemove(card);
+                }
+            }
+
+            function fadeAndRemove(element) {
+                element.style.transition = 'opacity 0.3s, transform 0.3s, max-height 0.3s, padding 0.3s, margin 0.3s';
+                element.style.opacity = '0';
+                element.style.transform = 'scale(0.95)';
+                element.style.maxHeight = '0px';
+                element.style.padding = '0';
+                element.style.marginTop = '0';
+                element.style.marginBottom = '0';
+                
+                setTimeout(() => {
+                    element.remove();
+                    const remaining = document.querySelectorAll('.transaction-card').length;
+                    document.getElementById('transaction-count').textContent = remaining;
+                }, 300);
+            }
+
+            // --- Initial Load ---
+            updateFinancialOverview();
+            renderTransactions();
+
+            // --- Event Listeners ---
+            const feed = document.getElementById('transactions-feed');
+            feed.addEventListener('click', handleInteraction);
+            feed.addEventListener('change', handleInteraction);
+        });
+    </script>
+</body>
+</html>
