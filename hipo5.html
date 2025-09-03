@@ -38,14 +38,14 @@
         <!-- Header Section -->
         <header class="flex justify-between items-center mb-8 fade-in">
             <div>
-                <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">Dashboard</h1>
                 <p class="text-gray-500">Welcome back, Alex!</p>
             </div>
-            <div class="flex items-center gap-6">
+            <div class="flex items-center gap-4 sm:gap-6">
                 <button class="p-2 rounded-full hover:bg-white transition">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
                 </button>
-                <img class="w-12 h-12 rounded-full border-2 border-emerald-500" src="https://placehold.co/100x100/E2E8F0/4A5568?text=A" alt="User Profile">
+                <img class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-emerald-500" src="https://placehold.co/100x100/E2E8F0/4A5568?text=A" alt="User Profile">
             </div>
         </header>
 
@@ -55,8 +55,8 @@
             <section id="overview-section" class="fade-in">
                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     
-                    <!-- NEW: Redesigned Main Card for Clarity -->
-                    <div class="md:col-span-2 bg-gradient-to-br from-emerald-600 to-green-700 text-white p-8 rounded-2xl shadow-lg flex flex-col justify-between">
+                    <!-- Redesigned Main Card for Clarity -->
+                    <div class="md:col-span-2 bg-gradient-to-br from-emerald-600 to-green-700 text-white p-6 sm:p-8 rounded-2xl shadow-lg flex flex-col justify-between">
                         <div class="space-y-4">
                             <!-- Total Balance Row -->
                             <div class="flex items-center justify-between opacity-80">
@@ -84,7 +84,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/><path d="M8 1a2 2 0 0 0-2 2v2H5V3a3 3 0 0 1 6 0v2h-1V3a2 2 0 0 0-2-2zM5 5H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5H11v1.5a.5.5 0 0 1-1 0V5H6v1.5a.5.5 0 0 1-1 0V5z"/></svg>
                                     <span class="text-xl font-bold">Safe to Spend</span>
                                 </div>
-                                <span id="safe-to-spend" class="text-5xl lg:text-6xl font-bold">$7,500.00</span>
+                                <span id="safe-to-spend" class="text-4xl sm:text-5xl lg:text-6xl font-bold">$7,500.00</span>
                             </div>
                         </div>
                     </div>
@@ -213,6 +213,7 @@
                         </div>
                         <div class="categorization-controls grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
                             
+                            <!-- Custom Dropdown for Type -->
                             <div class="relative sm:col-span-1">
                                 <select class="type-select w-full appearance-none rounded-md border-gray-300 bg-white py-2 pl-3 pr-8 text-sm font-medium focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition">
                                     <option value="">Select Type...</option>
@@ -224,6 +225,7 @@
                                 </div>
                             </div>
                             
+                            <!-- Custom Dropdown for Category -->
                             <div class="relative sm:col-span-1 select-wrapper disabled">
                                 <select class="category-select w-full appearance-none rounded-md border-gray-300 bg-white py-2 pl-3 pr-8 text-sm font-medium focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition" disabled>
                                     <option value="">Select Category...</option>
