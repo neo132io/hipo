@@ -1,0 +1,365 @@
+import React, { useState, useEffect, useMemo } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, Legend } from 'recharts';
+import { AlertCircle, CheckCircle2, TrendingUp, Send, Loader2, RefreshCw } from 'lucide-react';
+
+// --- CONFIGURATION ---
+// TODO: PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyXSjeIA1LN6VR5SvZnMIh8rYXjgBKbG9_UUlQ6Q1ZZpwU_VstOjyysW-IPTC8sZ_nCcQ/exec"; 
+
+const App = () => {
+  const [activeTab, setActiveTab] = useState('report'); // 'report', 'dashboard'
+  const [currentUser, setCurrentUser] = useState('');
+  const [configData, setConfigData] = useState([]);
+  const [reportsData, setReportsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // --- DATA FETCHING ---
+  const fetchData = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(GOOGLE_SCRIPT_URL);
+      const json = await response.json();
+      setConfigData(json.config || []);
+      setReportsData(json.reports || []);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      alert("Failed to load data from Google Sheets.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (GOOGLE_SCRIPT_URL !== "PASTE_YOUR_WEB_APP_URL_HERE") {
+        fetchData();
+    }
+  }, []);
+
+  // Get unique owners for dropdown
+  const owners = useMemo(() => {
+    return [...new Set(configData.map(item => item.owner))];
+  }, [configData]);
+
+  // --- SUBMISSION HANDLER ---
+  const handleSubmitReport = async (reportsToSubmit) => {
+    setIsSubmitting(true);
+    try {
+      // We send requests sequentially to ensure they are recorded
+      for (const report of reportsToSubmit) {
+         await fetch(GOOGLE_SCRIPT_URL + "?action=submit", {
+          method: "POST",
+          body: JSON.stringify(report),
+          // mode: "no-cors" is often needed for Google Scripts simple POSTs
+          // but relying on the text/plain method usually works better for simple JSON.
+        });
+      }
+      alert("Reports submitted successfully!");
+      // Refresh data to show updated charts
+      fetchData(); 
+      setActiveTab('dashboard');
+    } catch (error) {
+      console.error(error);
+      alert("Error submitting report");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  if (GOOGLE_SCRIPT_URL === "PASTE_YOUR_WEB_APP_URL_HERE") {
+      return (
+          <div className="flex items-center justify-center h-screen bg-gray-50 p-10 text-center">
+              <div>
+                <h1 className="text-2xl font-bold text-red-600 mb-4">Configuration Needed</h1>
+                <p>Please paste your Google Apps Script Deployment URL into the code at line 7.</p>
+              </div>
+          </div>
+      )
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
+      {/* HEADER */}
+      <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center gap-2">
+              <div className="bg-blue-600 p-2 rounded-lg">
+                <TrendingUp className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-gray-900">OKR Confidence Tracker</h1>
+                <p className="text-xs text-gray-500">Q1 2026</p>
+              </div>
+            </div>
+            
+            <div className="flex space-x-4">
+              <button
+                onClick={() => setActiveTab('report')}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  activeTab === 'report' ? 'bg-blue-50 text-blue-700' : 'text-gray-500 hover:text-gray-900'
+                }`}
+              >
+                Update Confidence
+              </button>
+              <button
+                onClick={() => setActiveTab('dashboard')}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  activeTab === 'dashboard' ? 'bg-blue-50 text-blue-700' : 'text-gray-500 hover:text-gray-900'
+                }`}
+              >
+                Dashboard
+              </button>
+               <button
+                onClick={fetchData}
+                className="p-2 text-gray-400 hover:text-blue-600 transition"
+                title="Refresh Data"
+              >
+                <RefreshCw className={`h-5 w-5 ${isLoading ? 'animate-spin' : ''}`} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* MAIN CONTENT */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {isLoading ? (
+          <div className="flex justify-center items-center h-64">
+            <Loader2 className="h-10 w-10 animate-spin text-blue-600" />
+            <span className="ml-3 text-gray-500">Syncing with Sheets...</span>
+          </div>
+        ) : (
+          <>
+            {activeTab === 'report' && (
+              <ReportingView 
+                owners={owners} 
+                currentUser={currentUser} 
+                setCurrentUser={setCurrentUser}
+                configData={configData}
+                onSubmit={handleSubmitReport}
+                isSubmitting={isSubmitting}
+              />
+            )}
+            
+            {activeTab === 'dashboard' && (
+              <DashboardView 
+                configData={configData} 
+                reportsData={reportsData} 
+              />
+            )}
+          </>
+        )}
+      </main>
+    </div>
+  );
+};
+
+// --- COMPONENT: REPORTING VIEW ---
+const ReportingView = ({ owners, currentUser, setCurrentUser, configData, onSubmit, isSubmitting }) => {
+  // Local state for the form inputs
+  const [inputs, setInputs] = useState({});
+
+  // Filter KRs for selected user
+  const myKRs = configData.filter(kr => kr.owner === currentUser);
+
+  const handleInputChange = (krId, field, value) => {
+    setInputs(prev => ({
+      ...prev,
+      [krId]: {
+        ...prev[krId],
+        [field]: value
+      }
+    }));
+  };
+
+  const submitAll = () => {
+    if (!currentUser) return alert("Please select who you are.");
+    
+    // Prepare payload
+    const payload = [];
+    myKRs.forEach(kr => {
+      const input = inputs[kr.id];
+      if (input && input.confidence) {
+        payload.push({
+          krId: kr.id,
+          owner: currentUser,
+          confidence: input.confidence,
+          comment: input.comment || ""
+        });
+      }
+    });
+
+    if (payload.length === 0) return alert("Please update at least one OKR confidence level.");
+    onSubmit(payload);
+  };
+
+  return (
+    <div className="max-w-3xl mx-auto">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-8">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Who are you?</label>
+        <select 
+          value={currentUser} 
+          onChange={(e) => setCurrentUser(e.target.value)}
+          className="block w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md border"
+        >
+          <option value="">-- Select your name --</option>
+          {owners.map(owner => (
+            <option key={owner} value={owner}>{owner}</option>
+          ))}
+        </select>
+      </div>
+
+      {currentUser && (
+        <div className="space-y-6">
+           <h2 className="text-lg font-semibold text-gray-800">Your OKRs for Q1 2026</h2>
+          {myKRs.map((kr) => {
+             const currentVal = inputs[kr.id]?.confidence || 5;
+             const colorClass = currentVal >= 8 ? "text-green-600" : currentVal >= 5 ? "text-yellow-600" : "text-red-600";
+             
+             return (
+              <div key={kr.id} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden transition hover:shadow-md">
+                <div className="p-6">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 mb-2">
+                        {kr.objective}
+                      </span>
+                      <h3 className="text-lg font-medium text-gray-900">{kr.title}</h3>
+                    </div>
+                    <div className={`text-2xl font-bold ${colorClass}`}>
+                      {currentVal}/10
+                    </div>
+                  </div>
+
+                  <div className="mt-6">
+                    <div className="flex justify-between text-xs text-gray-500 mb-1">
+                      <span>Off Track (1)</span>
+                      <span>Done (10)</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      value={currentVal}
+                      onChange={(e) => handleInputChange(kr.id, 'confidence', parseInt(e.target.value))}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                    />
+                  </div>
+
+                  <div className="mt-4">
+                    <textarea
+                      placeholder="Any blockers or notes for this week?"
+                      className="w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm border p-2"
+                      rows={2}
+                      onChange={(e) => handleInputChange(kr.id, 'comment', e.target.value)}
+                    />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+
+          <div className="sticky bottom-4 bg-white/90 backdrop-blur p-4 rounded-xl border border-gray-200 shadow-lg flex justify-between items-center">
+             <span className="text-sm text-gray-500">Ready to submit weekly update?</span>
+             <button
+              onClick={submitAll}
+              disabled={isSubmitting}
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+             >
+               {isSubmitting ? <Loader2 className="animate-spin mr-2"/> : <Send className="mr-2 h-4 w-4"/>}
+               Submit Report
+             </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// --- COMPONENT: DASHBOARD VIEW ---
+const DashboardView = ({ configData, reportsData }) => {
+  // Transform data for charts
+  // 1. Group by KR
+  // 2. Sort by date
+  
+  // Helper to format date
+  const formatDate = (isoString) => {
+    const d = new Date(isoString);
+    return `${d.getDate()}/${d.getMonth()+1}`;
+  };
+
+  const getChartDataForKR = (krId) => {
+    return reportsData
+      .filter(r => r.krId == krId) // loose equality for string/number mismatch
+      .sort((a,b) => new Date(a.timestamp) - new Date(b.timestamp))
+      .map(r => ({
+        date: formatDate(r.timestamp),
+        confidence: r.confidence,
+        comment: r.comment
+      }));
+  };
+
+  return (
+    <div className="space-y-8">
+      <h2 className="text-2xl font-bold text-gray-800">Team Confidence Trends</h2>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {configData.map(kr => {
+          const chartData = getChartDataForKR(kr.id);
+          const currentScore = chartData.length > 0 ? chartData[chartData.length - 1].confidence : '-';
+          
+          if (chartData.length === 0) return null; // Don't show empty charts
+
+          return (
+            <div key={kr.id} className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+               <div className="flex justify-between items-start mb-4 h-16">
+                  <h3 className="text-sm font-medium text-gray-700 line-clamp-2" title={kr.title}>
+                    {kr.title}
+                  </h3>
+                  <span className={`text-lg font-bold px-2 py-1 rounded ${
+                    currentScore >= 8 ? 'bg-green-100 text-green-800' :
+                    currentScore >= 5 ? 'bg-yellow-100 text-yellow-800' :
+                    'bg-red-100 text-red-800'
+                  }`}>
+                    {currentScore}
+                  </span>
+               </div>
+               
+               <div className="h-48 w-full">
+                 <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={chartData}>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                      <XAxis dataKey="date" tick={{fontSize: 12}} />
+                      <YAxis domain={[0, 10]} hide />
+                      <Tooltip />
+                      <ReferenceLine y={5} stroke="red" strokeDasharray="3 3" />
+                      <Line 
+                        type="monotone" 
+                        dataKey="confidence" 
+                        stroke="#2563eb" 
+                        strokeWidth={2} 
+                        dot={{r: 4}} 
+                        activeDot={{r: 6}} 
+                      />
+                    </LineChart>
+                 </ResponsiveContainer>
+               </div>
+               <div className="mt-2 text-xs text-gray-400 text-right">
+                 Owner: {kr.owner}
+               </div>
+            </div>
+          )
+        })}
+      </div>
+      
+      {reportsData.length === 0 && (
+         <div className="text-center py-20 text-gray-400 bg-white rounded-xl border border-dashed">
+            <p>No reports submitted yet. Go to "Update Confidence" to start.</p>
+         </div>
+      )}
+    </div>
+  );
+};
+
+export default App;
